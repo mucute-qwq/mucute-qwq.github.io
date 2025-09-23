@@ -190,7 +190,7 @@
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img" rel="gallery_cuidVtWXoRIec7tMsSc0oBeih">
+      <a class="article-gallery-img" rel="gallery_cuidN4JZzzcXpVM0WTqLy8ZV9">
         <img src="/images/docker-banner.svg" itemprop="image">
       </a>
     
@@ -235,76 +235,70 @@
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h2 id="什么是-Docker"><a href="#什么是-Docker" class="headerlink" title="什么是 Docker?"></a>什么是 Docker?</h2><blockquote>
+          <h2 id="什么是-Docker">什么是 Docker?</h2>
+<blockquote>
 <p>Docker 是一个使用 Golang 编写的开源的应用容器引擎，Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</p>
 <p>容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app），更重要的是容器性能开销极低。</p>
 <p>更多信息详见：<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-tutorial.html">runoob</a></p>
 </blockquote>
 <p>说人话就是一个容器引擎，可以管理不同的容器（且容器之间不会相互影响）</p>
-<h2 id="如何使用-Docker"><a href="#如何使用-Docker" class="headerlink" title="如何使用 Docker?"></a>如何使用 Docker?</h2><p>详见另一篇文章 <a href="https://mucute-qwq.github.io/2025/08/29/how-to-use-docker">《如何在 Ubuntu&#x2F;Windows 上使用 Docker》</a></p>
-<h2 id="什么是-Termux-Packages"><a href="#什么是-Termux-Packages" class="headerlink" title="什么是 Termux Packages?"></a>什么是 Termux Packages?</h2><p>Termux Packages 是一个用于 Termux（一个适用于 Android 的终端模拟器）的包构建系统。</p>
+<h2 id="如何使用-Docker">如何使用 Docker?</h2>
+<p>详见另一篇文章 <a href="https://mucute-qwq.github.io/2025/08/29/how-to-use-docker">《如何在 Ubuntu/Windows 上使用 Docker》</a></p>
+<h2 id="什么是-Termux-Packages">什么是 Termux Packages?</h2>
+<p>Termux Packages 是一个用于 Termux（一个适用于 Android 的终端模拟器）的包构建系统。</p>
 <p>说人话就是一个 “万能钥匙”，可以很方便地编译所需要的（适用于 Android的）包。</p>
-<h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h2><p>首先要确定我们需要编译的包，我这里就以 Zlib（一个著名压缩库）为例子。</p>
+<h2 id="1-准备工作">1.准备工作</h2>
+<p>首先要确定我们需要编译的包，我这里就以 Zlib（一个著名压缩库）为例子。</p>
 <p>使用 Git 将 Termux Packages 给克隆下来</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># --depth=1 参数的意思是只需要最新的 commit（这样克隆速度快）</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/termux/termux-packages.git --depth=1</span><br></pre></td></tr></table></figure>
-
 <p>接下来我们要修改配置。打开 <code>termux-packages/scripts/properties.sh</code> 并编辑。（Linux 上可以使用 Vim，Windows 可以使用自带的文本编辑器）</p>
 <p>搜索 TERMUX_REPO_APP__PACKAGE_NAME，然后发现如下：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ...</span></span><br><span class="line">TERMUX_APP__PACKAGE_NAME=<span class="string">&quot;com.termux&quot;</span></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line">TERMUX_REPO_APP__PACKAGE_NAME=<span class="string">&quot;com.termux&quot;</span></span><br><span class="line">TERMUX_REPO_APP__DATA_DIR=<span class="string">&quot;/data/data/com.termux&quot;</span></span><br><span class="line">TERMUX_REPO__CORE_DIR=<span class="string">&quot;/data/data/com.termux/termux/core&quot;</span></span><br><span class="line">TERMUX_REPO__APPS_DIR=<span class="string">&quot;/data/data/com.termux/termux/app&quot;</span></span><br><span class="line">TERMUX_REPO__ROOTFS=<span class="string">&quot;/data/data/com.termux/files&quot;</span></span><br><span class="line">TERMUX_REPO__HOME=<span class="string">&quot;/data/data/com.termux/files/home&quot;</span></span><br><span class="line">TERMUX_REPO__PREFIX=<span class="string">&quot;/data/data/com.termux/files/usr&quot;</span></span><br><span class="line"><span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
-
 <p>将其修改为</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ...</span></span><br><span class="line">TERMUX_APP__PACKAGE_NAME=<span class="string">&quot;你的软件包名&quot;</span></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line">TERMUX_REPO_APP__PACKAGE_NAME=<span class="string">&quot;你的软件包名&quot;</span></span><br><span class="line">TERMUX_REPO_APP__DATA_DIR=<span class="string">&quot;/data/data/你的软件包名&quot;</span></span><br><span class="line">TERMUX_REPO__CORE_DIR=<span class="string">&quot;/data/data/你的软件包名/termux/core&quot;</span></span><br><span class="line">TERMUX_REPO__APPS_DIR=<span class="string">&quot;/data/data/你的软件包名/termux/app&quot;</span></span><br><span class="line">TERMUX_REPO__ROOTFS=<span class="string">&quot;/data/data/你的软件包名/files&quot;</span></span><br><span class="line">TERMUX_REPO__HOME=<span class="string">&quot;/data/data/你的软件包名/files/home&quot;</span></span><br><span class="line">TERMUX_REPO__PREFIX=<span class="string">&quot;/data/data/你的软件包名/files/usr&quot;</span></span><br><span class="line"><span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
-
 <p>然后保存并退出文件，在当前 <code>termux-packages/scripts</code> 目录下，先确保 Docker 服务正在运行，然后我们启动镜像创造一个编译环境。</p>
 <p>注意：这一步拉取镜像会很慢，一定要使用梯子去拉取（否则大概率连接超时）</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对于 Linux 系统：</span></span><br><span class="line"><span class="built_in">chmod</span> 700 run-docker.sh</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">scripts/run-docker.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对于 Windows 系统：</span></span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">scripts/run-docker.ps1</span><br></pre></td></tr></table></figure>
-
 <p>在进入容器后，我们需要先获取超级用户权限</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将自身提权为超级用户</span></span><br><span class="line"><span class="built_in">sudo</span> -s</span><br></pre></td></tr></table></figure>
-
 <p>接下来我们需要安装编译所需要的包，这一步很重要</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt update <span class="comment"># 更新当前软件包列表</span></span><br><span class="line"><span class="built_in">cd</span> scripts <span class="comment"># 进入脚本目录</span></span><br><span class="line">./setup-android-sdk.sh <span class="comment"># 安装交叉编译所需的 Android SDK、Android NDK</span></span><br><span class="line">./setup-ubuntu.sh <span class="comment"># 安装编译所需及常用的软件包</span></span><br></pre></td></tr></table></figure>
-
 <p>最后返回构建根目录</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br></pre></td></tr></table></figure>
-
 <p>下面就是正式开始编译了！</p>
-<h2 id="2-开始编译"><a href="#2-开始编译" class="headerlink" title="2.开始编译"></a>2.开始编译</h2><p>已知我们需要编译 Zlib，那么我们使用 <code>build-package.sh</code> 脚本完成这件事。<br>这里的 <code>zlib</code> 是我们需要编译的包，如果需要编译别的包那就换成别的包名称（例如 <code>nodejs</code>）<br>使用 <code>-a</code> 参数可指定目标架构，这里我们指定为 <code>aarch64</code> 即可。</p>
+<h2 id="2-开始编译">2.开始编译</h2>
+<p>已知我们需要编译 Zlib，那么我们使用 <code>build-package.sh</code> 脚本完成这件事。<br>
+这里的 <code>zlib</code> 是我们需要编译的包，如果需要编译别的包那就换成别的包名称（例如 <code>nodejs</code>）<br>
+使用 <code>-a</code> 参数可指定目标架构，这里我们指定为 <code>aarch64</code> 即可。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./build-package.sh zlib -a aarch64</span><br></pre></td></tr></table></figure>
-
-<p>编译会花很长的时间，请耐心等待。但是相比于编译一个 Linux 系统，还是要快很多的。<br>编译后产生的文件将会在 <code>output</code> 目录，里面的文件都是 <code>.deb</code> 格式，我们可以对其进行解压缩。</p>
+<p>编译会花很长的时间，请耐心等待。但是相比于编译一个 Linux 系统，还是要快很多的。<br>
+编译后产生的文件将会在 <code>output</code> 目录，里面的文件都是 <code>.deb</code> 格式，我们可以对其进行解压缩。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> output/*</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    dpkg -x <span class="variable">$file</span> /</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
 <p>解压缩完成后，文件将会在 <code>/data/data/你的软件包名</code> 中，这里我们使用 <code>tar</code> 进行压缩。</p>
 <p>为什么不直接进行 <code>zip</code> 呢？这是因为 <code>zip</code> 会导致原本软链接的文件直接被替换并复制为原文件，空间占用会很大。而 <code>tar.gz</code> 或者 <code>tar.xz</code> 可以正确处理这些软链接的文件。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/builder/termux-packages &amp;&amp; tar czvf zlib.tar.gz /data/data/你的软件包名/*</span><br></pre></td></tr></table></figure>
-
-<p>然后我们退出容器，在当前根目录下就有我们的 <code>zlib.tar.gz</code> 了。<br>可以使用 Common Compress 对 <code>tar.gz</code> 进行解压缩。</p>
-<h2 id="3-清理环境"><a href="#3-清理环境" class="headerlink" title="3.清理环境"></a>3.清理环境</h2><p>编译完成后如果没有什么特殊需求，我们可以删除这个容器。<br>首先先看一下容器 ID</p>
+<p>然后我们退出容器，在当前根目录下就有我们的 <code>zlib.tar.gz</code> 了。<br>
+可以使用 Common Compress 对 <code>tar.gz</code> 进行解压缩。</p>
+<h2 id="3-清理环境">3.清理环境</h2>
+<p>编译完成后如果没有什么特殊需求，我们可以删除这个容器。<br>
+首先先看一下容器 ID</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-
 <p>出现结果：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CONTAINER ID   IMAGE                            COMMAND       CREATED          STATUS          PORTS     NAMES</span><br><span class="line">384de2869811   ghcr.io/termux/package-builder   &quot;/bin/bash&quot;   31 minutes ago   Up 31 minutes             termux-package-builder</span><br></pre></td></tr></table></figure>
-
 <p>这里的容器 ID 就是 <code>384de2869811</code>，你这里显示的是不一样的。</p>
 <p>我们可以先停止这个容器</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop 384de2869811 <span class="comment"># 这个是刚刚显示的容器 ID</span></span><br></pre></td></tr></table></figure>
-
 <p>然后删除容器</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">rm</span> 384de2869811</span><br></pre></td></tr></table></figure>
-
 <p>我不推荐你删除镜像，因为镜像拉取还是很费网的。主要是镜像占用空间大。当前如果你想要删除也是可以的。</p>
 <p>先确保你已经停止并删除了所有容器，然后就可以正常删除镜像。</p>
 <p>先看一下镜像 ID</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
-
 <p>显示为</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">REPOSITORY                       TAG       IMAGE ID       CREATED       SIZE</span><br><span class="line">ghcr.io/termux/package-builder   latest    830a35fed2cc   11 days ago   7.84GB</span><br></pre></td></tr></table></figure>
-
 <p>这里的 <code>830a35fed2cc</code> 就是镜像的 ID</p>
 <p>接下来我们对镜像进行删除</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi 830a35fed2cc</span><br></pre></td></tr></table></figure>
-
 <p>这样环境就清理完毕了！</p>
 
         

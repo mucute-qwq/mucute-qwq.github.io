@@ -190,7 +190,7 @@
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img" rel="gallery_cuidtvKcAquP6c-Q6dCxqaL7g">
+      <a class="article-gallery-img" rel="gallery_cuidSCHpO7Kfqi4I4w3Czmu9O">
         <img src="/images/docker-banner.svg" itemprop="image">
       </a>
     
@@ -235,72 +235,81 @@
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h2 id="什么是-Docker"><a href="#什么是-Docker" class="headerlink" title="什么是 Docker?"></a>什么是 Docker?</h2><blockquote>
+          <h2 id="什么是-Docker">什么是 Docker?</h2>
+<blockquote>
 <p>Docker 是一个使用 Golang 编写的开源的应用容器引擎，Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</p>
 <p>容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app），更重要的是容器性能开销极低。</p>
 <p>更多信息详见：<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-tutorial.html">runoob</a></p>
 </blockquote>
 <p>说人话就是一个容器引擎，可以管理不同的容器（且容器之间不会相互影响）</p>
-<h2 id="为什么要使用-Docker"><a href="#为什么要使用-Docker" class="headerlink" title="为什么要使用 Docker?"></a>为什么要使用 Docker?</h2><p>Docker 可以轻松提供一个容器环境，可以使用这个环境进行程序部署、交叉编译等…<br>对于不同的系统，Docker 相当于一个轻量级的虚拟机。可以实现构建环境一致而不必使用 Vmware 这种连硬件都模拟的重量级虚拟机。<br>不仅节约系统资源，而且性能足够。Docker 可以说是一个黑科技，百无一害。</p>
+<h2 id="为什么要使用-Docker">为什么要使用 Docker?</h2>
+<p>Docker 可以轻松提供一个容器环境，可以使用这个环境进行程序部署、交叉编译等…<br>
+对于不同的系统，Docker 相当于一个轻量级的虚拟机。可以实现构建环境一致而不必使用 Vmware 这种连硬件都模拟的重量级虚拟机。<br>
+不仅节约系统资源，而且性能足够。Docker 可以说是一个黑科技，百无一害。</p>
 <p>举个例子：现在你弄好了一个 Nginx 服务器，想把它给你的朋友。但是你的朋友操作系统、架构都和你的不同。这个时候就可以让朋友使用 Docker 导入你这里的镜像（或者使用 Dockerfile）</p>
-<h2 id="1-如何安装-Docker"><a href="#1-如何安装-Docker" class="headerlink" title="1.如何安装 Docker?"></a>1.如何安装 Docker?</h2><p>Docker 在不同操作系统有不同安装方法，这里我们只讨论 Linux (Ubuntu) 与 Windows。</p>
-<h3 id="在-Ubuntu-上安装-Docker"><a href="#在-Ubuntu-上安装-Docker" class="headerlink" title="在 Ubuntu 上安装 Docker"></a>在 Ubuntu 上安装 Docker</h3><p>对于 Ubuntu，你可以使用官方提供的安装方法进行安装：</p>
+<h2 id="1-如何安装-Docker">1.如何安装 Docker?</h2>
+<p>Docker 在不同操作系统有不同安装方法，这里我们只讨论 Linux (Ubuntu) 与 Windows。</p>
+<h3 id="在-Ubuntu-上安装-Docker">在 Ubuntu 上安装 Docker</h3>
+<p>对于 Ubuntu，你可以使用官方提供的安装方法进行安装：</p>
 <ol>
 <li>设置 Docker 的 Apt 存储库</li>
 </ol>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加 Docker 的官方 GPG 密钥</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"><span class="built_in">sudo</span> apt-get install ca-certificates curl</span><br><span class="line"><span class="built_in">sudo</span> install -m 0755 -d /etc/apt/keyrings</span><br><span class="line"><span class="built_in">sudo</span> curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> a+r /etc/apt/keyrings/docker.asc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加仓库到 Apt 源</span></span><br><span class="line"><span class="built_in">echo</span> \</span><br><span class="line">  <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \</span></span><br><span class="line"><span class="string">  <span class="subst">$(. /etc/os-release &amp;&amp; echo <span class="string">&quot;<span class="variable">$&#123;UBUNTU_CODENAME:-<span class="variable">$VERSION_CODENAME</span>&#125;</span>&quot;</span>)</span> stable&quot;</span> | \</span><br><span class="line">  <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br><span class="line"><span class="built_in">sudo</span> apt-get update</span><br></pre></td></tr></table></figure>
-
 <ol start="2">
 <li>安装 Docker 的软件包</li>
 </ol>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> -s <span class="comment"># 将自身提权为超级用户</span></span><br><span class="line">apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br></pre></td></tr></table></figure>
-
-
 <p>如果当前方法不行，可以使用 <code>docker.io</code> 完成一键安装：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install docker.io</span><br></pre></td></tr></table></figure>
-
-<h3 id="在-Windows-上安装-Docker"><a href="#在-Windows-上安装-Docker" class="headerlink" title="在 Windows 上安装 Docker"></a>在 Windows 上安装 Docker</h3><p>对于 Windows，Docker 可以选择使用 <code>WSL2</code> 或者 <code>HyperV</code> （不推荐）进行安装。</p>
+<h3 id="在-Windows-上安装-Docker">在 Windows 上安装 Docker</h3>
+<p>对于 Windows，Docker 可以选择使用 <code>WSL2</code> 或者 <code>HyperV</code> （不推荐）进行安装。</p>
 <p>由于 Docker 并不推荐 <code>HyperV</code> 安装，我们这里就使用 <code>WSL2</code> 进行安装即可。</p>
 <ol>
 <li>启用 WSL2</li>
 </ol>
-<p><code>WSL2</code> 默认可能没有启用，我们需要先启动它。<br>打开 <code>PowerShell</code>，输入：</p>
+<p><code>WSL2</code> 默认可能没有启用，我们需要先启动它。<br>
+打开 <code>PowerShell</code>，输入：</p>
 <figure class="highlight ps1"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OptionalFeatures</span><br></pre></td></tr></table></figure>
-
 <p>就可以打开 <code>启用或关闭 Windows 功能</code> 弹窗。这里我们往下拉，找到 <code>适用于 Linux 的 Windows 子系统</code>，勾选上确定并重启系统。</p>
 <p>重启完成后我们需要更新下 <code>WSL2</code>，这是因为对于某些系统这里安装的是 <code>WSL1</code>，需要更新为 <code>WSL2</code>。</p>
 <p>再次打开 <code>PowerShell</code>，输入：</p>
 <figure class="highlight ps1"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl <span class="literal">--update</span> <span class="literal">--web-download</span></span><br></pre></td></tr></table></figure>
 <p>这里的 <code>--web-download</code> 主要是因为 <code>WSL</code> 默认使用 Windows 自带的商店进行下载（这个是真的很慢），所以这里就是让它使用远程更新。</p>
-<p>更新完成后重启系统。接下来要安装 Docker。<br>点击 <a target="_blank" rel="noopener" href="https://www.docker.com/products/docker-desktop">这里</a> 打开 <code>Docker Desktop</code> 网页，选择你 Windows 当前的架构，进行安装。</p>
+<p>更新完成后重启系统。接下来要安装 Docker。<br>
+点击 <a target="_blank" rel="noopener" href="https://www.docker.com/products/docker-desktop">这里</a> 打开 <code>Docker Desktop</code> 网页，选择你 Windows 当前的架构，进行安装。</p>
 <p>这里安装选项有一个是 <code>Use WSL 2 instead of Hyper-V (recommended)</code>，将它勾选上。</p>
 <p>安装完成后需要登录账号，这里可以选择跳过。保持 Docker 在后台运行。</p>
-<h3 id="测试-Docker-是否正常运行"><a href="#测试-Docker-是否正常运行" class="headerlink" title="测试 Docker 是否正常运行"></a>测试 Docker 是否正常运行</h3><p>接下来我们验证下 Docker 是否成功安装。我们可以用 Docker 的 hello-world 程序进行测试：</p>
+<h3 id="测试-Docker-是否正常运行">测试 Docker 是否正常运行</h3>
+<p>接下来我们验证下 Docker 是否成功安装。我们可以用 Docker 的 hello-world 程序进行测试：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
-
 <p>如果没有什么异常输出，那么我们已经成功安装 Docker 了。</p>
-<h2 id="Docker-的基本使用"><a href="#Docker-的基本使用" class="headerlink" title="Docker 的基本使用"></a>Docker 的基本使用</h2><p>接下来就是学习使用 Docker 了。Docker 的命令虽然多，但是有很多是不常用的，我们就学习这些常用的命令即可。</p>
+<h2 id="Docker-的基本使用">Docker 的基本使用</h2>
+<p>接下来就是学习使用 Docker 了。Docker 的命令虽然多，但是有很多是不常用的，我们就学习这些常用的命令即可。</p>
 <p>在学习之前，我们需要了解下什么是镜像？什么是容器？</p>
 <p>镜像，可以被类比为面向对象中的 <code>类</code>，也就是  <code>Class</code>。它提供了一个模板。比如一个 <code>Person</code> 类中规定了我作为人应该有什么特征，有什么行为。</p>
 <p>容器，可以被类比为面向对象中实例化的一个类的 <code>实例</code>。我属于这个 <code>类</code>，但是我有我自己特殊的属性。比如实例化的 <code>Person</code> 中我的年龄是 28，另外一个是 29 这样。</p>
 <p>这就是镜像与容器的区别。镜像是一个模板，容器是从模板出来的独立个体。</p>
 <ol>
-<li>如何获取镜像？<br>获取镜像有两种方法：一种是 <code>自己做一个</code>（使用 Dockerfile），另一种是 <code>从别人做好的去拿</code>。</li>
+<li>如何获取镜像？<br>
+获取镜像有两种方法：一种是 <code>自己做一个</code>（使用 Dockerfile），另一种是 <code>从别人做好的去拿</code>。</li>
 </ol>
-<h3 id="对于第一种：自己做一个。"><a href="#对于第一种：自己做一个。" class="headerlink" title="对于第一种：自己做一个。"></a>对于第一种：自己做一个。</h3><p>先创建一个 <code>Dockerfile</code> 文件，我们使用 <code>FROM</code> 来指定基于的镜像。</p>
+<h3 id="对于第一种：自己做一个。">对于第一种：自己做一个。</h3>
+<p>先创建一个 <code>Dockerfile</code> 文件，我们使用 <code>FROM</code> 来指定基于的镜像。</p>
 <p>例如：<code>FROM ubuntu</code>，就是基于 <code>ubuntu</code> 镜像去完成制作。</p>
 <p>然后我们可以使用 <code>RUN</code> 来执行命令。例如：<code>RUN sudo apt update</code>。</p>
 <p>如果要构建镜像，我们可以使用 <code>docker build</code> 完成。</p>
 <p>例如：<code>$ docker build -t nginx:v3 .</code>，就是在当前目录构建镜像，新镜像为 <code>nginx:v3</code>。</p>
 <p>更多命令详见：<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-dockerfile.html">Docker Dockerfile</a></p>
-<h3 id="对于第二种：从别人做好的去拿。"><a href="#对于第二种：从别人做好的去拿。" class="headerlink" title="对于第二种：从别人做好的去拿。"></a>对于第二种：从别人做好的去拿。</h3><p>可以使用 <code>docker pull</code> 命令完成这件事，我们只需要提供一个需要的镜像即可。</p>
+<h3 id="对于第二种：从别人做好的去拿。">对于第二种：从别人做好的去拿。</h3>
+<p>可以使用 <code>docker pull</code> 命令完成这件事，我们只需要提供一个需要的镜像即可。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull [可选参数] 镜像名称[:标签|@SHA256 摘要]</span><br></pre></td></tr></table></figure>
 <p>常用选项：</p>
 <ul>
 <li>–all-tags, -a: 下载指定镜像的所有标签。</li>
 <li>–disable-content-trust: 跳过镜像签名验证。</li>
 </ul>
-<p>拉取镜像会很吃网络，尽量挂梯子（当然换源也可以）<br>拉取完毕后，就可以学习如何创建一个容器了。</p>
+<p>拉取镜像会很吃网络，尽量挂梯子（当然换源也可以）<br>
+拉取完毕后，就可以学习如何创建一个容器了。</p>
 <ol start="2">
 <li>如何创建并启动容器？</li>
 </ol>
@@ -324,9 +333,9 @@
 <p>还有挂载卷，这也是个很常用的功能。可以通过它实现文件的直接交互。而不需要 <code>docker cp</code> 复制文件。可以通过 <code>docker run -v /host/data:/container/data ubuntu</code>，就是将主机的 <code>/host/data</code> 挂载到容器的 <code>/container/data</code> 目录。</p>
 <p><code>--network</code> 参数就是使用主机网络配置。例如主机配置了系统代理那么容器也会使用同样配置。</p>
 <ol start="3">
-<li>如何启动&#x2F;停止容器</li>
+<li>如何启动/停止容器</li>
 </ol>
-<p>容器是可以被主动启动&#x2F;停止的。有时候我们需要停止容器释放资源，或者重启启动一个已经运行完毕的容器。可以使用 <code>docker start</code> 与 <code>docker stop</code> 命令完成这件事。</p>
+<p>容器是可以被主动启动/停止的。有时候我们需要停止容器释放资源，或者重启启动一个已经运行完毕的容器。可以使用 <code>docker start</code> 与 <code>docker stop</code> 命令完成这件事。</p>
 <p>启动一个容器：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start [可选参数] 容器 [其他容器...]</span><br></pre></td></tr></table></figure>
 <p>常用参数：</p>
@@ -339,14 +348,14 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop [可选参数] 容器 [其他容器...]</span><br></pre></td></tr></table></figure>
 <p>常用参数：</p>
 <ul>
-<li>-t, –time: 停止容器之前等待的秒数，默认是 10 秒。</li>
+<li>-t, --time: 停止容器之前等待的秒数，默认是 10 秒。</li>
 </ul>
 <p>一般要停止一个容器，直接 <code>docker stop 容器</code> 就可以了。</p>
 <p>重新启动一个容器：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart [可选参数] 容器 [其他容器...]</span><br></pre></td></tr></table></figure>
 <p>常用参数：</p>
 <ul>
-<li>-t, –time: 停止容器之前等待的秒数，默认是 10 秒。</li>
+<li>-t, --time: 停止容器之前等待的秒数，默认是 10 秒。</li>
 </ul>
 <ol start="4">
 <li>如何对运行中的容器执行一个新的命令？</li>
@@ -355,15 +364,15 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec [可选参数] 容器 命令 [命令参数...]</span><br></pre></td></tr></table></figure>
 <p>常用参数：</p>
 <ul>
-<li>-d, –detach: 在后台运行命令。</li>
+<li>-d, --detach: 在后台运行命令。</li>
 <li>–detach-keys: 覆盖分离容器的键序列。</li>
-<li>-e, –env: 设置环境变量。</li>
+<li>-e, --env: 设置环境变量。</li>
 <li>–env-file: 从文件中读取环境变量。</li>
-<li>-i, –interactive: 保持标准输入打开。</li>
+<li>-i, --interactive: 保持标准输入打开。</li>
 <li>–privileged: 给这个命令额外的权限。</li>
 <li>–user, -u: 以指定用户的身份运行命令。</li>
 <li>–workdir, -w: 指定命令的工作目录。</li>
-<li>-t, –tty: 分配一个伪终端。</li>
+<li>-t, --tty: 分配一个伪终端。</li>
 </ul>
 <p>一般我们使用 <code>ubuntu</code> 这种系统镜像，可选参数为 <code>-it</code> 就可以。解释一下就是允许标准输入，并启动一个终端环境来操作容器。命令参数在这里一般是 <code>/bin/bash</code>，当然如果要直接运行某个程序那就输入那个程序路径。</p>
 <p>如果要直接列出容器中某个目录，也可以不进入伪终端。例如：<code>docker exec my_container ls /app</code>。就是列出 <code>my_container</code> 中 <code>/app</code> 目录下的文件和文件夹。</p>
@@ -375,12 +384,12 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images [可选参数] [仓库[:标签]]</span><br></pre></td></tr></table></figure>
 <p>常用参数：</p>
 <ul>
-<li>-a, –all: 显示所有镜像（包括中间层镜像）。</li>
+<li>-a, --all: 显示所有镜像（包括中间层镜像）。</li>
 <li>–digests: 显示镜像的摘要信息。</li>
-<li>-f, –filter: 过滤输出，基于提供的条件。</li>
+<li>-f, --filter: 过滤输出，基于提供的条件。</li>
 <li>–format: 使用 Go 模板格式化输出。</li>
 <li>–no-trunc: 显示完整的镜像 ID。</li>
-<li>-q, –quiet: 只显示镜像 ID。</li>
+<li>-q, --quiet: 只显示镜像 ID。</li>
 </ul>
 <p>一般查看所有镜像，直接 <code>docker images</code> 就可以了。</p>
 <ol start="6">
@@ -390,37 +399,37 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps [可选参数]</span><br></pre></td></tr></table></figure>
 <p>常用参数：</p>
 <ul>
-<li>-a, –all: 显示所有容器，包括停止的容器。</li>
-<li>-q, –quiet: 只显示容器 ID。</li>
-<li>-l, –latest: 显示最近创建的一个容器，包括所有状态。</li>
+<li>-a, --all: 显示所有容器，包括停止的容器。</li>
+<li>-q, --quiet: 只显示容器 ID。</li>
+<li>-l, --latest: 显示最近创建的一个容器，包括所有状态。</li>
 <li>-n: 显示最近创建的 n 个容器，包括所有状态。</li>
 <li>–no-trunc: 不截断输出。</li>
-<li>-s, –size: 显示容器的大小。</li>
+<li>-s, --size: 显示容器的大小。</li>
 <li>–filter, -f: 根据条件过滤显示的容器。</li>
 <li>–format: 格式化输出。</li>
 </ul>
 <p>一般我们都是使用 <code>docker ps -a</code> 来查看容器。因为容器在停止后使用 <code>docker ps</code> 是不显示的，因此我们这里使用 <code>-a</code> 列出所有。</p>
 <ol start="7">
-<li>如何删除镜像&#x2F;容器？</li>
+<li>如何删除镜像/容器？</li>
 </ol>
-<p>有时候我们想要清理那些不需要的资源，就可以选择删除 镜像&#x2F;容器 来节省空间。我们可以使用 <code>docker rmi</code> 来删除镜像：</p>
+<p>有时候我们想要清理那些不需要的资源，就可以选择删除 镜像/容器 来节省空间。我们可以使用 <code>docker rmi</code> 来删除镜像：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi [可选参数] 镜像 [其他镜像...]</span><br></pre></td></tr></table></figure>
 <p>常用参数：</p>
 <ul>
-<li>-a, –all-tags: 指定仓库名称时，删除该仓库下的所有镜像。</li>
-<li>-f, –force: 强制删除镜像，即使该镜像被容器使用。</li>
+<li>-a, --all-tags: 指定仓库名称时，删除该仓库下的所有镜像。</li>
+<li>-f, --force: 强制删除镜像，即使该镜像被容器使用。</li>
 <li>–help: 打印帮助信息并退出。</li>
 <li>–no-prune: 不删除悬空的父镜像。</li>
-<li>-q, –quiet: 安静模式，不显示删除镜像的详细信息。</li>
+<li>-q, --quiet: 安静模式，不显示删除镜像的详细信息。</li>
 </ul>
 <p>一般直接使用 <code>docker rmi 镜像</code> 就可以了。</p>
 <p>我们可以使用 <code>docker rm</code> 来删除容器：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">rm</span> [可选参数] 容器 [其他容器...]</span><br></pre></td></tr></table></figure>
 <p>常用参数：</p>
 <ul>
-<li>-f, –force: 强制删除正在运行的容器（使用 SIGKILL 信号）。</li>
-<li>-l, –link: 删除指定的连接，而不是容器本身。</li>
-<li>-v, –volumes: 删除容器挂载的卷。</li>
+<li>-f, --force: 强制删除正在运行的容器（使用 SIGKILL 信号）。</li>
+<li>-l, --link: 删除指定的连接，而不是容器本身。</li>
+<li>-v, --volumes: 删除容器挂载的卷。</li>
 </ul>
 <p>一般删除容器之前都是先 <code>docker stop</code> 这个容器才能删除。当然加上 <code>-f</code> 可以强制删除。</p>
 <ol start="8">
@@ -428,30 +437,28 @@
 </ol>
 <p>有时候我们需要重命名一个容器，这个三时候就可以使用 <code>docker rename</code> 实现：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rename &lt;当前容器名称或ID&gt; &lt;新容器名称&gt;</span><br></pre></td></tr></table></figure>
-
 <ol start="9">
 <li>在主机和容器间传输文件。</li>
 </ol>
 <p>有时候我们需要向容器上传文件，或者从容器里下载文件。这个时候使用 <code>docker cp</code> 即可完成这件事。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 上传文件到容器</span></span><br><span class="line">docker <span class="built_in">cp</span> [可选参数] 原路径 容器:目标路径</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从容器下载文件</span></span><br><span class="line">docker <span class="built_in">cp</span> [可选参数] 容器:原路径 目标路径</span><br></pre></td></tr></table></figure>
-
 <p><code>docker cp</code> 也是经常使用的命令，需要熟练掌握。</p>
 <ol start="10">
-<li>导入&#x2F;导出镜像</li>
+<li>导入/导出镜像</li>
 </ol>
 <p>有时候我们需要将镜像变成一个文件并保存。我们就可以使用 <code>docker save</code> 将镜像保存为一个 <code>.tar</code> 文件。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save [可选参数] 镜像 [其他镜像...]</span><br></pre></td></tr></table></figure>
 <p>常用参数：</p>
 <ul>
-<li>-o, –output: 指定输出文件的路径。</li>
+<li>-o, --output: 指定输出文件的路径。</li>
 </ul>
 <p>一般我们直接使用 <code>docker save -o 文件路径</code> 就可以了。</p>
 <p>我们也可以使用 <code>docker load</code> 将这个 <code>.tar</code> 文件加载为一个镜像：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load [可选参数]</span><br></pre></td></tr></table></figure>
 <p>常用参数：</p>
 <ul>
-<li>-i, –input: 指定输入文件的路径。</li>
-<li>-q, –quiet: 安静模式，减少输出信息。</li>
+<li>-i, --input: 指定输入文件的路径。</li>
+<li>-q, --quiet: 安静模式，减少输出信息。</li>
 </ul>
 <p>一般我们直接使用 <code>docker load -i 文件路径</code> 就可以了。</p>
 
