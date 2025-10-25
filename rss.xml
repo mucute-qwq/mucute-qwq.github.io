@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>一剪沐橙の小窝</title><description>Forever MuCute.</description><link>https://mucute-qwq.github.io/</link><language>zh_CN</language><item><title>在移动设备上编写和运行 Rust</title><link>https://mucute-qwq.github.io/posts/write-and-run-rust-on-mobile/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/write-and-run-rust-on-mobile/</guid><description>通过使用 Rustroid 进行 Rust 编程</description><pubDate>Fri, 24 Oct 2025 18:30:07 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 Rustroid?&lt;/h2&gt;
+&lt;p&gt;Rustroid 是一款适用于 Android 的强大 Rust IDE，支持 LSP（Language Server Protocol），内置有强大补全。&lt;/p&gt;
+&lt;h2&gt;Rustroid 内置的项目模板有哪些？&lt;/h2&gt;
+&lt;p&gt;Rustroid 项目模板内置有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Binary（二进制）&lt;/li&gt;
+&lt;li&gt;Macroquad（简单的游戏库）&lt;/li&gt;
+&lt;li&gt;Snack Game（贪吃蛇游戏）&lt;/li&gt;
+&lt;li&gt;Egui（GUI 库）&lt;/li&gt;
+&lt;li&gt;Library（库）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Rustroid 的缺点？&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;目前软件没有适配中文，只有 English（英文）和 Arabic（阿拉伯文）。&lt;/li&gt;
+&lt;li&gt;代码编辑器不支持缩放代码，只能调整字体大小达到对应效果。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Rustroid 如何获取？&lt;/h2&gt;
+&lt;p&gt;首先，Rustroid 是付费的。在 Play 商店中搜索 Rustroid，然后进行购买即可下载安装。安装完成后打开软件如下：&lt;/p&gt;
+&lt;p&gt;&amp;lt;img alt=&quot;rustroid_home&quot; src=&quot;/write-and-run-rust-on-mobile/rustroid_home.jpg&quot; width=&quot;30%&quot; style=&quot;margin: 0 auto&quot; /&amp;gt;&lt;/p&gt;
+&lt;p&gt;点击 Create project（创建项目） 创建项目，然后点击 Project type（项目类型） 并选择 Egui Template（Egui 模板）。在 Project name（项目名称）中输入你的项目名称，点击 Yes（确定）进行创建。&lt;/p&gt;
+&lt;p&gt;&amp;lt;img alt=&quot;rustroid_create_project&quot; src=&quot;/write-and-run-rust-on-mobile/rustroid_create_project.jpg&quot; width=&quot;30%&quot; style=&quot;margin: 0 auto&quot; /&amp;gt;&lt;/p&gt;
+&lt;p&gt;然后 Rustroid 会默认打开项目并进行索引、检查、构建运行库：&lt;/p&gt;
+&lt;p&gt;&amp;lt;img alt=&quot;rustroid_project_indexed&quot; src=&quot;/write-and-run-rust-on-mobile/rustroid_project_indexed.jpg&quot; width=&quot;30%&quot; style=&quot;margin: 0 auto&quot; /&amp;gt;&lt;/p&gt;
+&lt;p&gt;完成之后点击右上角绿色的运行按钮，编译完成后即可实现快速运行（不需要安装软件）。运行后如下：&lt;/p&gt;
+&lt;p&gt;&amp;lt;img alt=&quot;rustroid_egui_demo&quot; src=&quot;/write-and-run-rust-on-mobile/rustroid_egui_demo.jpg&quot; width=&quot;30%&quot; style=&quot;margin: 0 auto&quot; /&amp;gt;&lt;/p&gt;
+&lt;p&gt;如何想要导出构建的 APK，在代码编辑器部分点击右上角的三个点（更多），选择 Export APK（导出 APK）。编译完成后就会跳转安装，安装完后使用 MT 管理器 提取安装包即可。&lt;/p&gt;
+</content:encoded></item><item><title>每个人心中的洛神</title><link>https://mucute-qwq.github.io/posts/the-luo-in-hearts/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/the-luo-in-hearts/</guid><description>致所有 LGBT、非 LGBT 群体。</description><pubDate>Tue, 23 Sep 2025 18:28:22 GMT</pubDate><content:encoded>&lt;p&gt;所有人都知道曹子建所作《洛神赋》，其中有很多优美的句子如：&lt;em&gt;&lt;strong&gt;“翩若惊鸿，宛若游龙”&lt;/strong&gt;&lt;/em&gt;、&lt;em&gt;&lt;strong&gt;“髣髴兮若轻云之蔽月，飘飖兮若流风之回雪”&lt;/strong&gt;&lt;/em&gt; 等。&lt;/p&gt;
+&lt;p&gt;天下人都知他曹子建才高八斗，却不知这《洛神赋》却是他被贬后所作。&lt;/p&gt;
+&lt;p&gt;不仅仅是曹子建，我们每个人都有自己的理想、信念。人天生就会去追求美好事物，所有人都一样。&lt;/p&gt;
+&lt;p&gt;为什么 LGBT 群体不受欢迎？这是因为世俗的偏见。人从诞生，就被决定了性别。性别，为什么可以完全决定一个人呢？有的人渐渐长大，才发现自己并不适合于这个性别。这是因为他的性格。&lt;/p&gt;
+&lt;p&gt;同性恋，似乎很多人把它当作什么剧毒无比的药，令人闻之色变。当他发现身边人是同性恋时，他就会开始语言攻击。辱骂、蔑视都是才开始。到后面的一个人带动一群人，孤立、嘲笑、调侃他。试问，如果你是同性恋，会想要遭受这种待遇吗？&lt;/p&gt;
+&lt;p&gt;同性之间为什么不能有真爱？什么是爱情呢？难道一定是要被所谓 “世俗” 所接受的东西吗？真正的爱，超乎肉体、超乎距离。两个人从心中爱着彼此，无论是相隔多远，都能挂念彼此。&lt;/p&gt;
+&lt;p&gt;唐初，唐太宗李世民的嫡长子李承乾，因为李泰有夺嫡的想法，想去阻止却被李世民渐渐疏远。却遇见了称心。最后称心被李世民处死。举个例子：在无尽的黑暗里，出现了一道光。在你想着终于可以出去的时候，光又消失了。失去了希望便没有了生活的意义。&lt;/p&gt;
+&lt;p&gt;李承乾有着他自己心中的洛神，跨性别者何尝没有呢？&lt;/p&gt;
+&lt;p&gt;跨性别，这个词被很多人厌恶、恶语相向。但是，我们要去想，为什么性别可以被决定？你可以不假思索地回答：“刚出生不就知道是男是女了吗？这有什么好疑惑的？”。如果你这样想，就是因为满足于自己的性别。并没有去换位思考一下。&lt;/p&gt;
+&lt;p&gt;有的时候一个选择，对于男、女来说有着截然不同的结局。对于男生，他要接受什么所谓的 “天经地义”。对于女生，她要接受什么所谓的 “美言美语”。仔细思考一下，所谓的 “人人平等” 是真的平等，真的没有任何偏向性吗？如果没有偏向性，那我又有什么必要写这样一篇文章呢？&lt;/p&gt;
+&lt;p&gt;有时候我不禁在想，如果我是 “她”，我就不会社恐了。我会有很多朋友，做一些自己从来不敢做的事情，让自己更好看一些……&lt;/p&gt;
+&lt;p&gt;人之所以想要跨性别，这是因为我们对于当前性别不满。性别，它限制了我们很多。在不同的事情上，做的不同的选择。而很多选择都是被迫如此的。比较经典的例如：“你是男孩子，你本来就应该做 xxx，这是天经地义。”
+再比如：“大丈夫流血不流泪。”&lt;/p&gt;
+&lt;p&gt;有的人很感性，却被一些所谓的 “世俗” 要你成为什么样的人所困。&lt;/p&gt;
+&lt;p&gt;跨性别者，又何尝没有自己的理想乡，自己的洛神呢？&lt;/p&gt;
+&lt;p&gt;怎样定义我们 “自己”？你究竟是出于社会认同？还是出于心理认同？为什么要为自己的洛神做解释呢？&lt;/p&gt;
+&lt;p&gt;现在的社会，对于 LGBT 的看法各不相同。我们不应该歧视 LGBT 群体，而是把 LGBT 群体当成正常人来看待。可以不支持 LGBT，但是请不要歧视他们。多多换位思考，更好地理解他们。&lt;/p&gt;
+&lt;p&gt;性少数群体，不需要向别人解释自己的洛神。每个人心中都有自己的洛神，做好自己，向往未来。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“本是同根生，相煎何太急！”
+—— 曹植《七步诗》&lt;/p&gt;
+&lt;/blockquote&gt;
+</content:encoded></item><item><title>从零开始创建一个自己的博客</title><link>https://mucute-qwq.github.io/posts/create-my-own-blog/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/create-my-own-blog/</guid><description>使用 Hexo + Butterfly 主题。</description><pubDate>Sun, 31 Aug 2025 15:09:37 GMT</pubDate><content:encoded>&lt;p&gt;本篇教你从零开始创建一个自己的博客（通过使用 Hexo + Butterfly 主题），并托管到 Github Pages。&lt;/p&gt;
+&lt;h2&gt;1. 安装 Git&lt;/h2&gt;
+&lt;p&gt;Git 是一个免费的开源分布式版本控制系统。我们后续需要使用 Git 克隆 Butterfly 仓库，所以要先安装 Git。
+访问 &lt;a href=&quot;https://git-scm.com&quot;&gt;Git Scm&lt;/a&gt; 自行下载并安装 Git。&lt;/p&gt;
+&lt;h2&gt;2. 安装 Bun&lt;/h2&gt;
+&lt;p&gt;Bun 是一款快速的 JavaScript 一体化工具包。它最大的特点就是快，而且与 &lt;code&gt;Node.js&lt;/code&gt; 兼容性也算好。所有这里我们就不用传统的 &lt;code&gt;Node.js&lt;/code&gt; 搭建博客了。&lt;/p&gt;
+&lt;p&gt;Bun 的安装十分简单，一行命令就能完成。对于 Linux 和 MacOS，使用如下命令安装：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl -fsSL https://bun.sh/install | bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;对于 Windows，在 &lt;code&gt;Powershell&lt;/code&gt; 中用如下命令安装：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;powershell -c &quot;irm bun.sh/install.ps1 | iex&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在Linux 和 MacOS 环境安装后，可能需要配置下环境变量，这里就不再赘述了。&lt;/p&gt;
+&lt;p&gt;接下来测试下 Bun 是否成功安装：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bun -v
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果能正常输出版本号，则说明安装成功。&lt;/p&gt;
+&lt;h2&gt;3. 安装 Hexo&lt;/h2&gt;
+&lt;p&gt;光有了 JavaScript 运行环境还不够，我们这里还需要 &lt;code&gt;hexo-cli&lt;/code&gt; 脚手架。可以使用如下命令安装 Hexo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# bun install 与 bun add 一样，官方默认推荐使用 bun add。-g 参数则是全局安装。
+bun add hexo-cli -g
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装完成后我们就可以开始了。&lt;/p&gt;
+&lt;h2&gt;4. 创建默认 Hexo 博客&lt;/h2&gt;
+&lt;p&gt;我们可以使用 &lt;code&gt;hexo init&lt;/code&gt; 创建一个新的 &lt;code&gt;hexo&lt;/code&gt; 博客项目：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 这里的 blog 是你的博客项目名称
+hexo init my-blog
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装完成后进入创建的博客目录：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd my-blog
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;所需要的依赖在 &lt;code&gt;hexo init&lt;/code&gt; 的时候就已经安装了，我们这里可以先开启本地服务器看一下博客页面：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# hexo server 和它等效
+hexo s
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果没什么问题访问 http://localhost:4000 应该是如下图，正常显示：
+&lt;img src=&quot;./default-blog.png&quot; alt=&quot;default-blog&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;这个默认样式太丑了，接下来我们给它加上 Butterfly 主题。&lt;/p&gt;
+&lt;h2&gt;5. 添加 Butterfly 主题&lt;/h2&gt;
+&lt;p&gt;Butterfly 主题非常漂亮，当然你也可以选择其他主题。更多主题详见 &lt;a href=&quot;https://hexo.io/themes&quot;&gt;Hexo Themes&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;我们使用之前安装的 Git 克隆 Butterfly 仓库：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# -b 指定仓库分支， --depth=1 参数的意思是只需要最新的 commit（这样克隆速度快）
+git clone -b master --depth=1 https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;克隆完成后我们需要应用主题。使用 &lt;code&gt;hexo config theme&lt;/code&gt; 进行修改。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 配置 Hexo 主题为 Butterfly
+hexo config theme butterfly
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;修改完成后，我们需要安装 &lt;code&gt;pug&lt;/code&gt; 和 &lt;code&gt;stylus&lt;/code&gt; 渲染器（这是因为 Butterfly 主题基于这两个渲染器）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 安装 pug 和 stylus 渲染器
+bun add hexo-renderer-pug hexo-renderer-stylus
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;还没有完，我们需要根目录下有一个主题配置文件。但是好消息是我们克隆的 Butterfly 仓库已经包含了这个配置文件。我们只需要将它复制到博客项目根目录即可。&lt;/p&gt;
+&lt;p&gt;打开 &lt;code&gt;themes/butterfly&lt;/code&gt; 目录，重命名 &lt;code&gt;_config.yml&lt;/code&gt; 为 &lt;code&gt;_config.butterfly.yml&lt;/code&gt;。复制重命名后的 &lt;code&gt;_config.butterfly.yml&lt;/code&gt; 到 &lt;code&gt;博客项目根目录&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;复制完成后删除原本的 &lt;code&gt;themes/butterfly/_config.butterfly.yml&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;来测试下主题是否成功应用。同样的：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hexo s
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后访问 http://localhost:4000 查看主题是否成功应用：
+&lt;img src=&quot;./butterfly-banner.png&quot; alt=&quot;butterfly-banner&quot; /&gt;
+&lt;img src=&quot;./butterfly-home.png&quot; alt=&quot;butterfly-home&quot; /&gt;&lt;/p&gt;
+&lt;h2&gt;6. 修改配置&lt;/h2&gt;
+&lt;p&gt;主题应用成功后，我们需要修改配置文件。主题配置和根配置文件都需要修改（也就是 &lt;code&gt;config.butterfly.yml&lt;/code&gt; 和 &lt;code&gt;_config.yml&lt;/code&gt;）。配置修改完成后我们可以本地预览，心怡之后我们就可以正式开始部署了。&lt;/p&gt;
+&lt;h2&gt;7. 部署到 Github Pages&lt;/h2&gt;
+&lt;p&gt;首先我们要先修改根配置文件。打开 &lt;code&gt;_config.yml&lt;/code&gt; 找到 &lt;code&gt;deploy&lt;/code&gt;，将：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;deploy:
+  type: &apos;&apos;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;改为：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;deploy:
+  type: &apos;git&apos;
+  repo: &apos;https://github.com/你的用户名/你的用户名.github.io.git&apos;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;保存并退出文件，安装 Git 部署所需要的库：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bun add hexo-deployer-git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;完成后记得先在 Github 中创建一个仓库，仓库名叫 &lt;code&gt;你的用户名.github.io&lt;/code&gt;。完成之后使用以下命令进行 Github Pages 一键部署：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# hexo deploy 与它等效
+hexo d
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这时候会让你登录你的 Github 账户，就正常登录授权即可。完成之后等待两分钟（为了等 Github Pages 部署完毕），访问 &lt;code&gt;https://你的用户名.github.io&lt;/code&gt; 查看部署是否成功。若无异常，恭喜你成功部署了自己的个人主页（所有人都可以访问）&lt;/p&gt;
+</content:encoded></item><item><title>如何在 Ubuntu/Windows 上使用 Docker</title><link>https://mucute-qwq.github.io/posts/how-to-use-docker/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/how-to-use-docker/</guid><description>通过简单学习，掌握 Docker 的基本使用方法。</description><pubDate>Fri, 29 Aug 2025 21:46:10 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 Docker?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Docker 是一个使用 Golang 编写的开源的应用容器引擎，Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。&lt;/p&gt;
+&lt;p&gt;容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app），更重要的是容器性能开销极低。&lt;/p&gt;
+&lt;p&gt;更多信息详见：&lt;a href=&quot;https://www.runoob.com/docker/docker-tutorial.html&quot;&gt;runoob&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;说人话就是一个容器引擎，可以管理不同的容器（且容器之间不会相互影响）&lt;/p&gt;
+&lt;h2&gt;为什么要使用 Docker?&lt;/h2&gt;
+&lt;p&gt;Docker 可以轻松提供一个容器环境，可以使用这个环境进行程序部署、交叉编译等...
+对于不同的系统，Docker 相当于一个轻量级的虚拟机。可以实现构建环境一致而不必使用 Vmware 这种连硬件都模拟的重量级虚拟机。
+不仅节约系统资源，而且性能足够。Docker 可以说是一个黑科技，百无一害。&lt;/p&gt;
+&lt;p&gt;举个例子：现在你弄好了一个 Nginx 服务器，想把它给你的朋友。但是你的朋友操作系统、架构都和你的不同。这个时候就可以让朋友使用 Docker 导入你这里的镜像（或者使用 Dockerfile）&lt;/p&gt;
+&lt;h2&gt;1.如何安装 Docker?&lt;/h2&gt;
+&lt;p&gt;Docker 在不同操作系统有不同安装方法，这里我们只讨论 Linux (Ubuntu) 与 Windows。&lt;/p&gt;
+&lt;h3&gt;在 Ubuntu 上安装 Docker&lt;/h3&gt;
+&lt;p&gt;对于 Ubuntu，你可以使用官方提供的安装方法进行安装：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;设置 Docker 的 Apt 存储库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;# 添加 Docker 的官方 GPG 密钥
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# 添加仓库到 Apt 源
+echo \
+  &quot;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release &amp;amp;&amp;amp; echo &quot;${UBUNTU_CODENAME:-$VERSION_CODENAME}&quot;) stable&quot; | \
+  sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null
+sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;安装 Docker 的软件包&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;sudo -s # 将自身提权为超级用户
+apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果当前方法不行，可以使用 &lt;code&gt;docker.io&lt;/code&gt; 完成一键安装：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apt update
+apt install docker.io
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;在 Windows 上安装 Docker&lt;/h3&gt;
+&lt;p&gt;对于 Windows，Docker 可以选择使用 &lt;code&gt;WSL2&lt;/code&gt; 或者 &lt;code&gt;HyperV&lt;/code&gt; （不推荐）进行安装。&lt;/p&gt;
+&lt;p&gt;由于 Docker 并不推荐 &lt;code&gt;HyperV&lt;/code&gt; 安装，我们这里就使用 &lt;code&gt;WSL2&lt;/code&gt; 进行安装即可。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;启用 WSL2&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;WSL2&lt;/code&gt; 默认可能没有启用，我们需要先启动它。
+打开 &lt;code&gt;PowerShell&lt;/code&gt;，输入：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;OptionalFeatures
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;就可以打开 &lt;code&gt;启用或关闭 Windows 功能&lt;/code&gt; 弹窗。这里我们往下拉，找到 &lt;code&gt;适用于 Linux 的 Windows 子系统&lt;/code&gt;，勾选上确定并重启系统。&lt;/p&gt;
+&lt;p&gt;重启完成后我们需要更新下 &lt;code&gt;WSL2&lt;/code&gt;，这是因为对于某些系统这里安装的是 &lt;code&gt;WSL1&lt;/code&gt;，需要更新为 &lt;code&gt;WSL2&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;再次打开 &lt;code&gt;PowerShell&lt;/code&gt;，输入：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wsl --update --web-download
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里的 &lt;code&gt;--web-download&lt;/code&gt; 主要是因为 &lt;code&gt;WSL&lt;/code&gt; 默认使用 Windows 自带的商店进行下载（这个是真的很慢），所以这里就是让它使用远程更新。&lt;/p&gt;
+&lt;p&gt;更新完成后重启系统。接下来要安装 Docker。
+点击 &lt;a href=&quot;https://www.docker.com/products/docker-desktop&quot;&gt;这里&lt;/a&gt; 打开 &lt;code&gt;Docker Desktop&lt;/code&gt; 网页，选择你 Windows 当前的架构，进行安装。&lt;/p&gt;
+&lt;p&gt;这里安装选项有一个是 &lt;code&gt;Use WSL 2 instead of Hyper-V (recommended)&lt;/code&gt;，将它勾选上。&lt;/p&gt;
+&lt;p&gt;安装完成后需要登录账号，这里可以选择跳过。保持 Docker 在后台运行。&lt;/p&gt;
+&lt;h3&gt;测试 Docker 是否正常运行&lt;/h3&gt;
+&lt;p&gt;接下来我们验证下 Docker 是否成功安装。我们可以用 Docker 的 hello-world 程序进行测试：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker run hello-world
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果没有什么异常输出，那么我们已经成功安装 Docker 了。&lt;/p&gt;
+&lt;h2&gt;Docker 的基本使用&lt;/h2&gt;
+&lt;p&gt;接下来就是学习使用 Docker 了。Docker 的命令虽然多，但是有很多是不常用的，我们就学习这些常用的命令即可。&lt;/p&gt;
+&lt;p&gt;在学习之前，我们需要了解下什么是镜像？什么是容器？&lt;/p&gt;
+&lt;p&gt;镜像，可以被类比为面向对象中的 &lt;code&gt;类&lt;/code&gt;，也就是  &lt;code&gt;Class&lt;/code&gt;。它提供了一个模板。比如一个 &lt;code&gt;Person&lt;/code&gt; 类中规定了我作为人应该有什么特征，有什么行为。&lt;/p&gt;
+&lt;p&gt;容器，可以被类比为面向对象中实例化的一个类的 &lt;code&gt;实例&lt;/code&gt;。我属于这个 &lt;code&gt;类&lt;/code&gt;，但是我有我自己特殊的属性。比如实例化的 &lt;code&gt;Person&lt;/code&gt; 中我的年龄是 28，另外一个是 29 这样。&lt;/p&gt;
+&lt;p&gt;这就是镜像与容器的区别。镜像是一个模板，容器是从模板出来的独立个体。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如何获取镜像？
+获取镜像有两种方法：一种是 &lt;code&gt;自己做一个&lt;/code&gt;（使用 Dockerfile），另一种是 &lt;code&gt;从别人做好的去拿&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;对于第一种：自己做一个。&lt;/h3&gt;
+&lt;p&gt;先创建一个 &lt;code&gt;Dockerfile&lt;/code&gt; 文件，我们使用 &lt;code&gt;FROM&lt;/code&gt; 来指定基于的镜像。&lt;/p&gt;
+&lt;p&gt;例如：&lt;code&gt;FROM ubuntu&lt;/code&gt;，就是基于 &lt;code&gt;ubuntu&lt;/code&gt; 镜像去完成制作。&lt;/p&gt;
+&lt;p&gt;然后我们可以使用 &lt;code&gt;RUN&lt;/code&gt; 来执行命令。例如：&lt;code&gt;RUN sudo apt update&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;如果要构建镜像，我们可以使用 &lt;code&gt;docker build&lt;/code&gt; 完成。&lt;/p&gt;
+&lt;p&gt;例如：&lt;code&gt;$ docker build -t nginx:v3 .&lt;/code&gt;，就是在当前目录构建镜像，新镜像为 &lt;code&gt;nginx:v3&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;更多命令详见：&lt;a href=&quot;https://www.runoob.com/docker/docker-dockerfile.html&quot;&gt;Docker Dockerfile&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;对于第二种：从别人做好的去拿。&lt;/h3&gt;
+&lt;p&gt;可以使用 &lt;code&gt;docker pull&lt;/code&gt; 命令完成这件事，我们只需要提供一个需要的镜像即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker pull [可选参数] 镜像名称[:标签|@SHA256 摘要]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;常用选项：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;--all-tags, -a: 下载指定镜像的所有标签。&lt;/li&gt;
+&lt;li&gt;--disable-content-trust: 跳过镜像签名验证。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;拉取镜像会很吃网络，尽量挂梯子（当然换源也可以）
+拉取完毕后，就可以学习如何创建一个容器了。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如何创建并启动容器？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我们可以使用 &lt;code&gt;docker run&lt;/code&gt; 创建并启动一个新容器。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker run [可选参数] 镜像 [命令] [命令参数...]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;常用参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-d: 后台运行容器并返回容器 ID。&lt;/li&gt;
+&lt;li&gt;-it: 交互式运行容器，分配一个伪终端。&lt;/li&gt;
+&lt;li&gt;--name: 给容器指定一个名称。&lt;/li&gt;
+&lt;li&gt;-p: 端口映射，格式为 host_port:container_port。&lt;/li&gt;
+&lt;li&gt;-v: 挂载卷，格式为 host_dir:container_dir。&lt;/li&gt;
+&lt;li&gt;--rm: 容器停止后自动删除容器。&lt;/li&gt;
+&lt;li&gt;--env 或 -e: 设置环境变量。&lt;/li&gt;
+&lt;li&gt;--network: 指定容器的网络模式。&lt;/li&gt;
+&lt;li&gt;--restart: 容器的重启策略（如 no、on-failure、always、unless-stopped）。&lt;/li&gt;
+&lt;li&gt;-u: 指定用户。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一般我们使用 &lt;code&gt;ubuntu&lt;/code&gt; 这种系统镜像，可选参数为 &lt;code&gt;-it&lt;/code&gt; 就可以。解释一下就是允许标准输入，并启动一个终端环境来操作容器。命令参数在这里一般是 &lt;code&gt;/bin/bash&lt;/code&gt;，当然如果要直接运行某个程序那就输入那个程序路径。&lt;/p&gt;
+&lt;p&gt;对于端口映射。比如使用 &lt;code&gt;Nginx&lt;/code&gt; 的时候，可以通过 &lt;code&gt;docker run -p 8080:80 nginx&lt;/code&gt; 将主机的 &lt;code&gt;8080&lt;/code&gt; 端口映射到容器的 &lt;code&gt;80&lt;/code&gt; 端口。&lt;/p&gt;
+&lt;p&gt;还有挂载卷，这也是个很常用的功能。可以通过它实现文件的直接交互。而不需要 &lt;code&gt;docker cp&lt;/code&gt; 复制文件。可以通过 &lt;code&gt;docker run -v /host/data:/container/data ubuntu&lt;/code&gt;，就是将主机的 &lt;code&gt;/host/data&lt;/code&gt; 挂载到容器的 &lt;code&gt;/container/data&lt;/code&gt; 目录。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--network&lt;/code&gt; 参数就是使用主机网络配置。例如主机配置了系统代理那么容器也会使用同样配置。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如何启动/停止容器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;容器是可以被主动启动/停止的。有时候我们需要停止容器释放资源，或者重启启动一个已经运行完毕的容器。可以使用 &lt;code&gt;docker start&lt;/code&gt; 与 &lt;code&gt;docker stop&lt;/code&gt; 命令完成这件事。&lt;/p&gt;
+&lt;p&gt;启动一个容器：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker start [可选参数] 容器 [其他容器...]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;常用参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-a: 附加到容器的标准输入输出流。&lt;/li&gt;
+&lt;li&gt;-i: 附加并保持标准输入打开。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一般要启动一个容器，直接 &lt;code&gt;docker start 容器&lt;/code&gt; 就可以了。&lt;/p&gt;
+&lt;p&gt;停止一个容器：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker stop [可选参数] 容器 [其他容器...]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;常用参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-t, --time: 停止容器之前等待的秒数，默认是 10 秒。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一般要停止一个容器，直接 &lt;code&gt;docker stop 容器&lt;/code&gt; 就可以了。&lt;/p&gt;
+&lt;p&gt;重新启动一个容器：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker restart [可选参数] 容器 [其他容器...]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;常用参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-t, --time: 停止容器之前等待的秒数，默认是 10 秒。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;如何对运行中的容器执行一个新的命令？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我们可以使用 &lt;code&gt;docker exec&lt;/code&gt; 对运行中的容器执行新命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker exec [可选参数] 容器 命令 [命令参数...]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;常用参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-d, --detach: 在后台运行命令。&lt;/li&gt;
+&lt;li&gt;--detach-keys: 覆盖分离容器的键序列。&lt;/li&gt;
+&lt;li&gt;-e, --env: 设置环境变量。&lt;/li&gt;
+&lt;li&gt;--env-file: 从文件中读取环境变量。&lt;/li&gt;
+&lt;li&gt;-i, --interactive: 保持标准输入打开。&lt;/li&gt;
+&lt;li&gt;--privileged: 给这个命令额外的权限。&lt;/li&gt;
+&lt;li&gt;--user, -u: 以指定用户的身份运行命令。&lt;/li&gt;
+&lt;li&gt;--workdir, -w: 指定命令的工作目录。&lt;/li&gt;
+&lt;li&gt;-t, --tty: 分配一个伪终端。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一般我们使用 &lt;code&gt;ubuntu&lt;/code&gt; 这种系统镜像，可选参数为 &lt;code&gt;-it&lt;/code&gt; 就可以。解释一下就是允许标准输入，并启动一个终端环境来操作容器。命令参数在这里一般是 &lt;code&gt;/bin/bash&lt;/code&gt;，当然如果要直接运行某个程序那就输入那个程序路径。&lt;/p&gt;
+&lt;p&gt;如果要直接列出容器中某个目录，也可以不进入伪终端。例如：&lt;code&gt;docker exec my_container ls /app&lt;/code&gt;。就是列出 &lt;code&gt;my_container&lt;/code&gt; 中 &lt;code&gt;/app&lt;/code&gt; 目录下的文件和文件夹。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--privileged&lt;/code&gt; 参数在某些情况下也会使用。通过 &lt;code&gt;--privileged=true&lt;/code&gt; 后，我们可以做很多平时不能做的事情：例如加载内核模块、直接操作硬件设备等。没有特殊需求不建议使用这个参数，因为不安全。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如何查看存在的镜像？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我们可以使用 &lt;code&gt;docker images&lt;/code&gt; 查看已存在的镜像。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker images [可选参数] [仓库[:标签]]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;常用参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-a, --all: 显示所有镜像（包括中间层镜像）。&lt;/li&gt;
+&lt;li&gt;--digests: 显示镜像的摘要信息。&lt;/li&gt;
+&lt;li&gt;-f, --filter: 过滤输出，基于提供的条件。&lt;/li&gt;
+&lt;li&gt;--format: 使用 Go 模板格式化输出。&lt;/li&gt;
+&lt;li&gt;--no-trunc: 显示完整的镜像 ID。&lt;/li&gt;
+&lt;li&gt;-q, --quiet: 只显示镜像 ID。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一般查看所有镜像，直接 &lt;code&gt;docker images&lt;/code&gt; 就可以了。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如何查看存在的容器？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我们可以使用 &lt;code&gt;docker ps&lt;/code&gt; 查看已存在的容器。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker ps [可选参数]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;常用参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-a, --all: 显示所有容器，包括停止的容器。&lt;/li&gt;
+&lt;li&gt;-q, --quiet: 只显示容器 ID。&lt;/li&gt;
+&lt;li&gt;-l, --latest: 显示最近创建的一个容器，包括所有状态。&lt;/li&gt;
+&lt;li&gt;-n: 显示最近创建的 n 个容器，包括所有状态。&lt;/li&gt;
+&lt;li&gt;--no-trunc: 不截断输出。&lt;/li&gt;
+&lt;li&gt;-s, --size: 显示容器的大小。&lt;/li&gt;
+&lt;li&gt;--filter, -f: 根据条件过滤显示的容器。&lt;/li&gt;
+&lt;li&gt;--format: 格式化输出。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一般我们都是使用 &lt;code&gt;docker ps -a&lt;/code&gt; 来查看容器。因为容器在停止后使用 &lt;code&gt;docker ps&lt;/code&gt; 是不显示的，因此我们这里使用 &lt;code&gt;-a&lt;/code&gt; 列出所有。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如何删除镜像/容器？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;有时候我们想要清理那些不需要的资源，就可以选择删除 镜像/容器 来节省空间。我们可以使用 &lt;code&gt;docker rmi&lt;/code&gt; 来删除镜像：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker rmi [可选参数] 镜像 [其他镜像...]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;常用参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-a, --all-tags: 指定仓库名称时，删除该仓库下的所有镜像。&lt;/li&gt;
+&lt;li&gt;-f, --force: 强制删除镜像，即使该镜像被容器使用。&lt;/li&gt;
+&lt;li&gt;--help: 打印帮助信息并退出。&lt;/li&gt;
+&lt;li&gt;--no-prune: 不删除悬空的父镜像。&lt;/li&gt;
+&lt;li&gt;-q, --quiet: 安静模式，不显示删除镜像的详细信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一般直接使用 &lt;code&gt;docker rmi 镜像&lt;/code&gt; 就可以了。&lt;/p&gt;
+&lt;p&gt;我们可以使用 &lt;code&gt;docker rm&lt;/code&gt; 来删除容器：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker rm [可选参数] 容器 [其他容器...]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;常用参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-f, --force: 强制删除正在运行的容器（使用 SIGKILL 信号）。&lt;/li&gt;
+&lt;li&gt;-l, --link: 删除指定的连接，而不是容器本身。&lt;/li&gt;
+&lt;li&gt;-v, --volumes: 删除容器挂载的卷。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一般删除容器之前都是先 &lt;code&gt;docker stop&lt;/code&gt; 这个容器才能删除。当然加上 &lt;code&gt;-f&lt;/code&gt; 可以强制删除。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;重命名容器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;有时候我们需要重命名一个容器，这个三时候就可以使用 &lt;code&gt;docker rename&lt;/code&gt; 实现：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker rename &amp;lt;当前容器名称或ID&amp;gt; &amp;lt;新容器名称&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;在主机和容器间传输文件。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;有时候我们需要向容器上传文件，或者从容器里下载文件。这个时候使用 &lt;code&gt;docker cp&lt;/code&gt; 即可完成这件事。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 上传文件到容器
+docker cp [可选参数] 原路径 容器:目标路径
+
+# 从容器下载文件
+docker cp [可选参数] 容器:原路径 目标路径
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;docker cp&lt;/code&gt; 也是经常使用的命令，需要熟练掌握。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;导入/导出镜像&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;有时候我们需要将镜像变成一个文件并保存。我们就可以使用 &lt;code&gt;docker save&lt;/code&gt; 将镜像保存为一个 &lt;code&gt;.tar&lt;/code&gt; 文件。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker save [可选参数] 镜像 [其他镜像...]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;常用参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-o, --output: 指定输出文件的路径。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一般我们直接使用 &lt;code&gt;docker save -o 文件路径&lt;/code&gt; 就可以了。&lt;/p&gt;
+&lt;p&gt;我们也可以使用 &lt;code&gt;docker load&lt;/code&gt; 将这个 &lt;code&gt;.tar&lt;/code&gt; 文件加载为一个镜像：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker load [可选参数]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;常用参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-i, --input: 指定输入文件的路径。&lt;/li&gt;
+&lt;li&gt;-q, --quiet: 安静模式，减少输出信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一般我们直接使用 &lt;code&gt;docker load -i 文件路径&lt;/code&gt; 就可以了。&lt;/p&gt;
+</content:encoded></item><item><title>使用 Docker 构建 Termux Packages 中指定的包</title><link>https://mucute-qwq.github.io/posts/build-termux-packages/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/build-termux-packages/</guid><description>简单几步，轻松为自己的 Android 软件编译所需要的库/可执行文件。</description><pubDate>Fri, 29 Aug 2025 19:11:59 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 Docker?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Docker 是一个使用 Golang 编写的开源的应用容器引擎，Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。&lt;/p&gt;
+&lt;p&gt;容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app），更重要的是容器性能开销极低。&lt;/p&gt;
+&lt;p&gt;更多信息详见：&lt;a href=&quot;https://www.runoob.com/docker/docker-tutorial.html&quot;&gt;runoob&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;说人话就是一个容器引擎，可以管理不同的容器（且容器之间不会相互影响）&lt;/p&gt;
+&lt;h2&gt;如何使用 Docker?&lt;/h2&gt;
+&lt;p&gt;详见另一篇文章 &lt;a href=&quot;https://mucute-qwq.github.io/2025/08/29/how-to-use-docker&quot;&gt;《如何在 Ubuntu/Windows 上使用 Docker》&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;什么是 Termux Packages?&lt;/h2&gt;
+&lt;p&gt;Termux Packages 是一个用于 Termux（一个适用于 Android 的终端模拟器）的包构建系统。&lt;/p&gt;
+&lt;p&gt;说人话就是一个 “万能钥匙”，可以很方便地编译所需要的（适用于 Android的）包。&lt;/p&gt;
+&lt;h2&gt;1.准备工作&lt;/h2&gt;
+&lt;p&gt;首先要确定我们需要编译的包，我这里就以 Zlib（一个著名压缩库）为例子。&lt;/p&gt;
+&lt;p&gt;使用 Git 将 Termux Packages 给克隆下来&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# --depth=1 参数的意思是只需要最新的 commit（这样克隆速度快）
+git clone https://github.com/termux/termux-packages.git --depth=1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;接下来我们要修改配置。打开 &lt;code&gt;termux-packages/scripts/properties.sh&lt;/code&gt; 并编辑。（Linux 上可以使用 Vim，Windows 可以使用自带的文本编辑器）&lt;/p&gt;
+&lt;p&gt;搜索 TERMUX_REPO_APP__PACKAGE_NAME，然后发现如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# ...
+TERMUX_APP__PACKAGE_NAME=&quot;com.termux&quot;
+# ...
+TERMUX_REPO_APP__PACKAGE_NAME=&quot;com.termux&quot;
+TERMUX_REPO_APP__DATA_DIR=&quot;/data/data/com.termux&quot;
+TERMUX_REPO__CORE_DIR=&quot;/data/data/com.termux/termux/core&quot;
+TERMUX_REPO__APPS_DIR=&quot;/data/data/com.termux/termux/app&quot;
+TERMUX_REPO__ROOTFS=&quot;/data/data/com.termux/files&quot;
+TERMUX_REPO__HOME=&quot;/data/data/com.termux/files/home&quot;
+TERMUX_REPO__PREFIX=&quot;/data/data/com.termux/files/usr&quot;
+# ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;将其修改为&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# ...
+TERMUX_APP__PACKAGE_NAME=&quot;你的软件包名&quot;
+# ...
+TERMUX_REPO_APP__PACKAGE_NAME=&quot;你的软件包名&quot;
+TERMUX_REPO_APP__DATA_DIR=&quot;/data/data/你的软件包名&quot;
+TERMUX_REPO__CORE_DIR=&quot;/data/data/你的软件包名/termux/core&quot;
+TERMUX_REPO__APPS_DIR=&quot;/data/data/你的软件包名/termux/app&quot;
+TERMUX_REPO__ROOTFS=&quot;/data/data/你的软件包名/files&quot;
+TERMUX_REPO__HOME=&quot;/data/data/你的软件包名/files/home&quot;
+TERMUX_REPO__PREFIX=&quot;/data/data/你的软件包名/files/usr&quot;
+# ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后保存并退出文件，在当前 &lt;code&gt;termux-packages/scripts&lt;/code&gt; 目录下，先确保 Docker 服务正在运行，然后我们启动镜像创造一个编译环境。&lt;/p&gt;
+&lt;p&gt;注意：这一步拉取镜像会很慢，一定要使用梯子去拉取（否则大概率连接超时）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 对于 Linux 系统：
+chmod 700 run-docker.sh
+cd ..
+scripts/run-docker.sh
+
+# 对于 Windows 系统：
+cd ..
+scripts/run-docker.ps1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在进入容器后，我们需要先获取超级用户权限&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 将自身提权为超级用户
+sudo -s
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;接下来我们需要安装编译所需要的包，这一步很重要&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apt update # 更新当前软件包列表
+cd scripts # 进入脚本目录
+./setup-android-sdk.sh # 安装交叉编译所需的 Android SDK、Android NDK
+./setup-ubuntu.sh # 安装编译所需及常用的软件包
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;最后返回构建根目录&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ..
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;下面就是正式开始编译了！&lt;/p&gt;
+&lt;h2&gt;2.开始编译&lt;/h2&gt;
+&lt;p&gt;已知我们需要编译 Zlib，那么我们使用 &lt;code&gt;build-package.sh&lt;/code&gt; 脚本完成这件事。
+这里的 &lt;code&gt;zlib&lt;/code&gt; 是我们需要编译的包，如果需要编译别的包那就换成别的包名称（例如 &lt;code&gt;nodejs&lt;/code&gt;）
+使用 &lt;code&gt;-a&lt;/code&gt; 参数可指定目标架构，这里我们指定为 &lt;code&gt;aarch64&lt;/code&gt; 即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./build-package.sh zlib -a aarch64
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;编译会花很长的时间，请耐心等待。但是相比于编译一个 Linux 系统，还是要快很多的。
+编译后产生的文件将会在 &lt;code&gt;output&lt;/code&gt; 目录，里面的文件都是 &lt;code&gt;.deb&lt;/code&gt; 格式，我们可以对其进行解压缩。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for file in output/*
+do
+    dpkg -x $file /
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;解压缩完成后，文件将会在 &lt;code&gt;/data/data/你的软件包名&lt;/code&gt; 中，这里我们使用 &lt;code&gt;tar&lt;/code&gt; 进行压缩。&lt;/p&gt;
+&lt;p&gt;为什么不直接进行 &lt;code&gt;zip&lt;/code&gt; 呢？这是因为 &lt;code&gt;zip&lt;/code&gt; 会导致原本软链接的文件直接被替换并复制为原文件，空间占用会很大。而 &lt;code&gt;tar.gz&lt;/code&gt; 或者 &lt;code&gt;tar.xz&lt;/code&gt; 可以正确处理这些软链接的文件。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /home/builder/termux-packages &amp;amp;&amp;amp; tar czvf zlib.tar.gz /data/data/你的软件包名/*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后我们退出容器，在当前根目录下就有我们的 &lt;code&gt;zlib.tar.gz&lt;/code&gt; 了。
+可以使用 Common Compress 对 &lt;code&gt;tar.gz&lt;/code&gt; 进行解压缩。&lt;/p&gt;
+&lt;h2&gt;3.清理环境&lt;/h2&gt;
+&lt;p&gt;编译完成后如果没有什么特殊需求，我们可以删除这个容器。
+首先先看一下容器 ID&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker ps -a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;出现结果：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;CONTAINER ID   IMAGE                            COMMAND       CREATED          STATUS          PORTS     NAMES
+384de2869811   ghcr.io/termux/package-builder   &quot;/bin/bash&quot;   31 minutes ago   Up 31 minutes             termux-package-builder
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里的容器 ID 就是 &lt;code&gt;384de2869811&lt;/code&gt;，你这里显示的是不一样的。&lt;/p&gt;
+&lt;p&gt;我们可以先停止这个容器&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker stop 384de2869811 # 这个是刚刚显示的容器 ID
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后删除容器&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker rm 384de2869811
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;我不推荐你删除镜像，因为镜像拉取还是很费网的。主要是镜像占用空间大。当前如果你想要删除也是可以的。&lt;/p&gt;
+&lt;p&gt;先确保你已经停止并删除了所有容器，然后就可以正常删除镜像。&lt;/p&gt;
+&lt;p&gt;先看一下镜像 ID&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker images
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;显示为&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;REPOSITORY                       TAG       IMAGE ID       CREATED       SIZE
+ghcr.io/termux/package-builder   latest    830a35fed2cc   11 days ago   7.84GB
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里的 &lt;code&gt;830a35fed2cc&lt;/code&gt; 就是镜像的 ID&lt;/p&gt;
+&lt;p&gt;接下来我们对镜像进行删除&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker rmi 830a35fed2cc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样环境就清理完毕了！&lt;/p&gt;
+</content:encoded></item><item><title>Hello, world!</title><link>https://mucute-qwq.github.io/posts/hello-world/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/hello-world/</guid><description>为美好的世界献上祝福。</description><pubDate>Tue, 26 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;第 N 次重建博客了，这一个博客会用一生。博客不会再重建了，以后都是用这个博客来发文章吧。&lt;/p&gt;
+&lt;p&gt;“一剪沐橙”，这就是我的笔名。也是伴随我一生的网名了。&lt;/p&gt;
+&lt;p&gt;2020 年，我在上网课期间写了一个 JavaScript 语法分析&lt;/p&gt;
+&lt;p&gt;2022 年，我开始自己实现代码编辑器，写了 MuCodeEditor&lt;/p&gt;
+&lt;p&gt;2023 年，我写了 WebDev，然后重写为了 WebDevOps（一个手机 WebIDE）&lt;/p&gt;
+&lt;p&gt;...&lt;/p&gt;
+&lt;p&gt;现在，我告别了过去，向未来前行。不再是一个懵懂的初中生，而是一个即将毕业的高三生。&lt;/p&gt;
+&lt;p&gt;面对高考，我也在做着准备。向着理想前行，向着目标前行。&lt;/p&gt;
+&lt;p&gt;为美好的世界献上祝福。 Hello, world!&lt;/p&gt;
+</content:encoded></item></channel></rss>
