@@ -1,1 +1,1 @@
-# MuCute Blog\n一剪沐橙的个人博客
+# MuCute Blog | 一剪沐橙的个人博客
