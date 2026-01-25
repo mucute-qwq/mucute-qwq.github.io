@@ -15,7 +15,162 @@
 &lt;a href=&quot;https://microsoft.github.io/language-server-protocol/implementors/servers/&quot;&gt;Language Server Protocol Implementations&lt;/a&gt; 给出了各类语言的 LSP 实现以及其实现所使用的语言。&lt;/p&gt;
 &lt;p&gt;了解了这些以后我们就可以开始正式为 Sora Editor 对接 LSP 了。&lt;/p&gt;
 &lt;h2&gt;如何为 Sora Editor 对接 LSP?&lt;/h2&gt;
-&lt;p&gt;TODO...&lt;/p&gt;
+&lt;p&gt;首先先编译你自己的 LSP Server 软件，然后我们可以使用 ProcessBuilder 去运行它。
+由于大部分 LSP 都是通过 stdio 和 stdout 进行通信，因此我们需要向 ProcessBuilder 产生的 Process 写入协议内容。
+Sora Editor 已经为我们内置好了相关接口，我们可以通过继承 &lt;code&gt;StreamConnectionProvider&lt;/code&gt; 类来处理相关逻辑。你可以参考如下源码（这里以 &lt;code&gt;TypeScript Language Server&lt;/code&gt; 为例）：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class ProcessStreamConnectionProvider(val context: Context) : StreamConnectionProvider {
+
+    // 这里创建我们的 ProcessBuilder, 指定需要运行的 LSP 服务器软件为 /data/user/0/你的包名/files/usr/bin/typescript-language-server
+    private val processBuilder = ProcessBuilder(context.filesDir.resolve(&quot;usr/bin&quot;).resolve(&quot;typescript-language-server&quot;).absolutePath, &quot;--stdio&quot;)
+        .apply {
+            // 这里设置默认的进程环境，并向 PATH、LD_LIBRARY_PATH 设置 typescript-language-server 当前文件夹路径和所需库文件路径
+            val env = environment()
+            env.putAll(System.getenv())
+            env[&quot;PATH&quot;] = &quot;${System.getenv(&quot;PATH&quot;)}:${context.filesDir.resolve(&quot;usr/bin&quot;)}&quot;
+            env[&quot;LD_LIBRARY_PATH&quot;] = &quot;${System.getenv(&quot;LD_LIBRARY_PATH&quot;)}:${context.filesDir.resolve(&quot;usr/lib&quot;)}&quot;
+            env[&quot;OPENSSL_CONF&quot;] = &quot;&quot;
+        }
+        // 重定向 stderr 到 stdout
+        .redirectErrorStream(true)
+
+    private lateinit var process: Process
+
+    override val inputStream: InputStream
+        get() = process.inputStream
+
+    override val outputStream: OutputStream
+        get() = process.outputStream
+
+    override fun start() {
+        process = processBuilder.start()
+    }
+
+    override fun close() {
+        process.destroy()
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;接下来是注册主题和语言配置，你可以在 &lt;code&gt;Application&lt;/code&gt; 中完成配置：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class AppContext : Application() {
+
+    companion object {
+
+        lateinit var instance: AppContext
+            private set
+
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        // ... 其它代码
+        
+        // 添加 AssetsFileResolver，便于直接引用 assets 中的文件
+        FileProviderRegistry.addProvider(AssetsFileResolver(assets))
+        
+        // 从 assets 中加载主题
+        ThemeRegistry.loadTheme(ThemeModel(ThemeSource(&quot;theme/quietlight.json&quot;, &quot;quietlight&quot;)))
+        
+        // 向 Monarch 注册表加载支持语言的语法配置
+        MonarchGrammarRegistry.INSTANCE.loadGrammars(monarchLanguages {
+            language(&quot;typescript&quot;) {
+                monarchLanguage = TypescriptLanguage
+                scopeName = &quot;source.ts&quot;
+                languageConfiguration = &quot;textmate/typescript/language-configuration.json&quot;
+            }
+        })
+
+        // ... 其它代码
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;接下来只需要应用主题、配置默认语言就行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;val codeEditor = CodeEditor(context).apply {
+    // 设置 Jetbrains 等宽字体，你也可以换成你自己喜欢的
+    val typeface =
+        Typeface.createFromAsset(context.assets, &quot;font/JetBrainsMono-Regular.ttf&quot;)
+    
+    // 给编辑器行号和内容进行应用
+    typefaceLineNumber = typeface
+    typefaceText = typeface
+    
+    // 设置编辑器配色方案
+    colorScheme = MonarchColorScheme.create(ThemeRegistry.currentTheme)
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;最后一步，连接 LSP：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 启动一个 Kotlin 协程
+CoroutineScope(Dispatchers.IO).launch {
+
+    // 可以切换到主线程做一些准备工作
+    withContext(Dispatchers.Main) {
+        context.toast(&quot;(Kotlin Activity) Starting Language Server...&quot;)
+        codeEditor.isEditable = false
+    }
+    
+    // 创建 LanguageServerDefinition
+    val serverDefinition =
+        object : CustomLanguageServerDefinition(
+            &quot;ts&quot;, // 这里指定你的目标语言
+            ServerConnectProvider {
+                ProcessStreamConnectionProvider(context) // 这个是之前配置的 ProcessStreamConnectionProvider
+            }
+        ) {}
+    
+    val typescriptLspDemoFolder = context.filesDir.resolve(&quot;typescript-lsp-demo&quot;)
+    val mainFile = typescriptLspDemoFolder.resolve(&quot;index.ts&quot;)
+    val lspProject = LspProject(typescriptLspDemoFolder.absolutePath)
+    lspProject.addServerDefinition(serverDefinition)
+    var lspEditor: LspEditor
+    withContext(Dispatchers.Main) {
+        // 创建 LspEditor
+        lspEditor = lspProject.createEditor(mainFile.absolutePath)
+        lspEditor.wrapperLanguage = MonarchLanguage.create(&quot;source.ts&quot;, true)
+        lspEditor.editor = codeEditor
+        lspEditor.isEnableInlayHint = true // 是否启用镶嵌提示
+        lspEditor.isEnableHover = true // 是否启用悬停
+        lspEditor.isEnableSignatureHelp = true // 是否启用签名提示
+    }
+    
+    // connectWithTimeout() 在 10s 内尝试连接（失败会重试），如果超时会抛出异常
+    try {
+        lspEditor.connectWithTimeout()
+        
+        // 给 LSP Server 指定切换工作目录
+        lspEditor.requestManager.didChangeWorkspaceFolders(
+            DidChangeWorkspaceFoldersParams().apply {
+                this.event = WorkspaceFoldersChangeEvent().apply {
+                    added =
+                        listOf(
+                            WorkspaceFolder(
+                                &quot;file://${typescriptLspDemoFolder}&quot;,
+                                &quot;typescript-lsp-demo&quot;
+                            )
+                        )
+                }
+            }
+        )
+        isLspConnected = true
+    } catch (e: Exception) {
+        isLspConnected = false
+        e.printStackTrace()
+    }
+    
+    // 连接成功或失败后进行一些工作
+    withContext(Dispatchers.Main) {
+        if (isLspConnected) {
+            context.toast(&quot;Initialized Language server&quot;)
+        } else {
+            context.toast(&quot;Unable to connect language server&quot;)
+        }
+        codeEditor.editable = true
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;TypeScript LSP Demo&lt;/h2&gt;
+&lt;p&gt;你可以在这个仓库中查看本 Demo 的所有代码：
+::github{repo=&quot;mucute-qwq/TypeScript-LSP-Demo&quot;}&lt;/p&gt;
 </content:encoded></item><item><title>在移动设备上编写和运行 Rust</title><link>https://mucute-qwq.github.io/posts/write-and-run-rust-on-mobile/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/write-and-run-rust-on-mobile/</guid><description>通过使用 Rustroid 进行 Rust 编程。</description><pubDate>Fri, 24 Oct 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 Rustroid?&lt;/h2&gt;
 &lt;p&gt;Rustroid 是一款适用于 Android 的强大 Rust IDE，支持 LSP（Language Server Protocol），内置有强大补全。&lt;/p&gt;
 &lt;h2&gt;Rustroid 内置的项目模板有哪些？&lt;/h2&gt;
