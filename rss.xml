@@ -343,7 +343,7 @@ hexo d
 &lt;/blockquote&gt;
 &lt;p&gt;说人话就是一个容器引擎，可以管理不同的容器（且容器之间不会相互影响）&lt;/p&gt;
 &lt;h2&gt;如何使用 Docker?&lt;/h2&gt;
-&lt;p&gt;详见另一篇文章 &lt;a href=&quot;https://mucute-qwq.github.io/2025/08/29/how-to-use-docker&quot;&gt;《如何在 Ubuntu/Windows 上使用 Docker》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;详见另一篇文章 &lt;a href=&quot;https://mucute-qwq.github.io/posts/how-to-use-docker/&quot;&gt;《如何在 Ubuntu/Windows 上使用 Docker》&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;什么是 Termux Packages?&lt;/h2&gt;
 &lt;p&gt;Termux Packages 是一个用于 Termux（一个适用于 Android 的终端模拟器）的包构建系统。&lt;/p&gt;
 &lt;p&gt;说人话就是一个 “万能钥匙”，可以很方便地编译所需要的（适用于 Android的）包。&lt;/p&gt;
