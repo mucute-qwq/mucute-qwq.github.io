@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>苏予汐の小窝</title><description>Forever MuCute.</description><link>https://fuwari.vercel.app/</link><language>zh_CN</language><item><title>MTF - 在开始之前</title><link>https://fuwari.vercel.app/posts/before-new-beginning/</link><guid isPermaLink="true">https://fuwari.vercel.app/posts/before-new-beginning/</guid><description>关于我的高考后谈，以及未来新开始与展望。</description><pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;高考后谈&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>苏予汐の小窝</title><description>Forever MuCute.</description><link>https://mucute-qwq.github.io/</link><language>zh_CN</language><item><title>MTF - 在开始之前</title><link>https://mucute-qwq.github.io/posts/before-new-beginning/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/before-new-beginning/</guid><description>关于我的高考后谈，以及未来新开始与展望。</description><pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;高考后谈&lt;/h2&gt;
 &lt;h3&gt;痛苦与厌恶之处&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;2026 年 6 月 9 日&lt;/code&gt; 高考结束了。回想我的高中三年，有时很痛苦也有时很快乐。痛苦在哪？开心在哪？下面我就来慢慢说吧！&lt;/p&gt;
 &lt;p&gt;我本身是一个很向往自由的人，记得高一一开学就和我们班主任起冲突了（当时还在军训）。说起这个事，我就有点无语。我在上高中前刷到的视频（关于宿舍等等）的都没有这么严过（我们高中是包括不限于宿舍不让带水、垃圾桶内不能有垃圾、床铺管理非常严格、课外书不让带进宿舍等等）。&lt;/p&gt;
@@ -22,7 +22,7 @@
 &lt;p&gt;自从看了 &lt;a href=&quot;https://transky.mtf.wiki/&quot;&gt;药娘的天空&lt;/a&gt;，我就相信，我们每个 &lt;code&gt;MTF&lt;/code&gt; 都是能独立且自信勇敢的！我们既然选择了这条路，就不会后悔。&lt;/p&gt;
 &lt;p&gt;我本身是一个很缺爱的人，我的爱情观也在一直变化。现在，我只希望能有一个真心对待我的（无论男、女）。&lt;/p&gt;
 &lt;p&gt;或许前路很艰难，但是我也相信，我们每个 &lt;code&gt;MTF&lt;/code&gt; 都能实现自己的梦想。相信自己，勇敢的走下去吧！&lt;/p&gt;
-</content:encoded></item><item><title>Node.js C++ / Android 嵌入器 API 及其使用</title><link>https://fuwari.vercel.app/posts/node-android/</link><guid isPermaLink="true">https://fuwari.vercel.app/posts/node-android/</guid><description>在 Android 上使用 Node.js C++ Embedding API。</description><pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 Node.js?&lt;/h2&gt;
+</content:encoded></item><item><title>Node.js C++ / Android 嵌入器 API 及其使用</title><link>https://mucute-qwq.github.io/posts/node-android/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/node-android/</guid><description>在 Android 上使用 Node.js C++ Embedding API。</description><pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 Node.js?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Node.js 是一个免费、开源、跨平台的 JavaScript 运行时环境，它让开发人员能够创建服务器、 Web 应用、命令行工具和脚本。&lt;/p&gt;
 &lt;p&gt;Node.js 官网：&lt;a href=&quot;https://nodejs.org/&quot;&gt;Node.js&lt;/a&gt;&lt;/p&gt;
@@ -222,7 +222,7 @@ Java_com_mucheng_nodejava_core_Context_nativeEvaluateScript(JNIEnv *env, jobject
 &lt;p&gt;注意，请使用 &lt;code&gt;v8::Context::Scope&lt;/code&gt; 限定 &lt;code&gt;v8::Local&amp;lt;v8::Context&amp;gt;&lt;/code&gt; 的范围，否则程序将会崩溃。
 使用 &lt;code&gt;node::SetProcessExitHandler&lt;/code&gt; 可以自定义 process.exit 事件，这里是停止当前的 &lt;code&gt;node::Environment&lt;/code&gt;。
 对于 JavaScript 的异常，你可以使用 &lt;code&gt;v8::TryCatch&lt;/code&gt; 进行捕捉与获取 StackTrace。&lt;/p&gt;
-</content:encoded></item><item><title>我是如何加入 LGBT 群体的</title><link>https://fuwari.vercel.app/posts/how-i-join-lgbt-community/how-i-join-lgbt-community/</link><guid isPermaLink="true">https://fuwari.vercel.app/posts/how-i-join-lgbt-community/how-i-join-lgbt-community/</guid><description>关于 LGBT，我的个人经历。</description><pubDate>Wed, 28 Jan 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;初遇&lt;/h2&gt;
+</content:encoded></item><item><title>我是如何加入 LGBT 群体的</title><link>https://mucute-qwq.github.io/posts/how-i-join-lgbt-community/how-i-join-lgbt-community/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/how-i-join-lgbt-community/how-i-join-lgbt-community/</guid><description>关于 LGBT，我的个人经历。</description><pubDate>Wed, 28 Jan 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;初遇&lt;/h2&gt;
 &lt;p&gt;我是在 2020 年开始看小说的，接触到的第一个小说平台是番茄。当时的番茄还没有任何广告，小说种类也说不上丰富。
 有天正当我百无聊赖地寻找一个会心的小说时，我看到了这本书，也是我的启蒙之作 —— 《我真不是女装大佬》&lt;/p&gt;
 &lt;p&gt;这小说的大致内容就是：主角凌宇，带着系统重生到了一个平行世界，并且成为了一个高三学生。系统的名字叫极品伪娘系统。并且在这之后开始的校园生活。&lt;/p&gt;
@@ -257,7 +257,7 @@ Java_com_mucheng_nodejava_core_Context_nativeEvaluateScript(JNIEnv *env, jobject
 &lt;p&gt;她可以帮助我做出更多的选择，考虑到更多的情况。&lt;/p&gt;
 &lt;p&gt;未来我可能会留长发，学习化妆。或者是选择吃糖。&lt;/p&gt;
 &lt;p&gt;无论选择的是哪一种，我也会勇敢的走下去！&lt;/p&gt;
-</content:encoded></item><item><title>为 Sora Editor 对接 LSP</title><link>https://fuwari.vercel.app/posts/integrate-lsp-for-sora-editor/</link><guid isPermaLink="true">https://fuwari.vercel.app/posts/integrate-lsp-for-sora-editor/</guid><description>以 typescript-language-server 为例，对接 TypeScript 语言服务器。</description><pubDate>Sat, 10 Jan 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 LSP (Language Server Protocol)?&lt;/h2&gt;
+</content:encoded></item><item><title>为 Sora Editor 对接 LSP</title><link>https://mucute-qwq.github.io/posts/integrate-lsp-for-sora-editor/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/integrate-lsp-for-sora-editor/</guid><description>以 typescript-language-server 为例，对接 TypeScript 语言服务器。</description><pubDate>Sat, 10 Jan 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 LSP (Language Server Protocol)?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;语言服务器协议 (Language Server Protocol 即 LSP) 定义了编辑器或 IDE 与语言服务器之间使用的协议，该语言服务器提供自动完成、跳转到定义、查找所有引用等语言功能。语言服务器索引格式 (LSIF，发音类似“else if”) 的目标是在开发工具或 Web UI 中支持丰富的代码导航，而无需源代码的本地副本。&lt;/p&gt;
 &lt;p&gt;更多信息详见：&lt;a href=&quot;https://microsoft.github.io/language-server-protocol/&quot;&gt;Language Server Protocol&lt;/a&gt;&lt;/p&gt;
@@ -430,7 +430,7 @@ CoroutineScope(Dispatchers.IO).launch {
 &lt;h2&gt;TypeScript LSP Demo&lt;/h2&gt;
 &lt;p&gt;你可以在这个仓库中查看本 Demo 的所有代码：
 ::github{repo=&quot;mucute-qwq/TypeScript-LSP-Demo&quot;}&lt;/p&gt;
-</content:encoded></item><item><title>在移动设备上编写和运行 Rust</title><link>https://fuwari.vercel.app/posts/write-and-run-rust-on-mobile/</link><guid isPermaLink="true">https://fuwari.vercel.app/posts/write-and-run-rust-on-mobile/</guid><description>通过使用 Rustroid 进行 Rust 编程。</description><pubDate>Fri, 24 Oct 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 Rustroid?&lt;/h2&gt;
+</content:encoded></item><item><title>在移动设备上编写和运行 Rust</title><link>https://mucute-qwq.github.io/posts/write-and-run-rust-on-mobile/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/write-and-run-rust-on-mobile/</guid><description>通过使用 Rustroid 进行 Rust 编程。</description><pubDate>Fri, 24 Oct 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 Rustroid?&lt;/h2&gt;
 &lt;p&gt;Rustroid 是一款适用于 Android 的强大 Rust IDE，支持 LSP（Language Server Protocol），内置有强大补全。&lt;/p&gt;
 &lt;h2&gt;Rustroid 内置的项目模板有哪些？&lt;/h2&gt;
 &lt;p&gt;Rustroid 项目模板内置有：&lt;/p&gt;
@@ -456,7 +456,7 @@ CoroutineScope(Dispatchers.IO).launch {
 &lt;p&gt;完成之后点击右上角绿色的运行按钮，编译完成后即可实现快速运行（不需要安装软件）。运行后如下：&lt;/p&gt;
 &lt;p&gt;&amp;lt;img alt=&quot;rustroid_egui_demo&quot; src=&quot;/write-and-run-rust-on-mobile/rustroid_egui_demo.jpg&quot; width=&quot;30%&quot; style=&quot;margin: 0 auto&quot; /&amp;gt;&lt;/p&gt;
 &lt;p&gt;如何想要导出构建的 APK，在代码编辑器部分点击右上角的三个点（更多），选择 Export APK（导出 APK）。编译完成后就会跳转安装，安装完后使用 MT 管理器 提取安装包即可。&lt;/p&gt;
-</content:encoded></item><item><title>每个人心中的洛神</title><link>https://fuwari.vercel.app/posts/the-luo-in-hearts/</link><guid isPermaLink="true">https://fuwari.vercel.app/posts/the-luo-in-hearts/</guid><description>致所有 LGBT、非 LGBT 群体。</description><pubDate>Tue, 23 Sep 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;所有人都知道曹子建所作《洛神赋》，其中有很多优美的句子如：&lt;em&gt;&lt;strong&gt;“翩若惊鸿，宛若游龙”&lt;/strong&gt;&lt;/em&gt;、&lt;em&gt;&lt;strong&gt;“髣髴兮若轻云之蔽月，飘飖兮若流风之回雪”&lt;/strong&gt;&lt;/em&gt; 等。&lt;/p&gt;
+</content:encoded></item><item><title>每个人心中的洛神</title><link>https://mucute-qwq.github.io/posts/the-luo-in-hearts/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/the-luo-in-hearts/</guid><description>致所有 LGBT、非 LGBT 群体。</description><pubDate>Tue, 23 Sep 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;所有人都知道曹子建所作《洛神赋》，其中有很多优美的句子如：&lt;em&gt;&lt;strong&gt;“翩若惊鸿，宛若游龙”&lt;/strong&gt;&lt;/em&gt;、&lt;em&gt;&lt;strong&gt;“髣髴兮若轻云之蔽月，飘飖兮若流风之回雪”&lt;/strong&gt;&lt;/em&gt; 等。&lt;/p&gt;
 &lt;p&gt;天下人都知他曹子建才高八斗，却不知这《洛神赋》却是他被贬后所作。&lt;/p&gt;
 &lt;p&gt;不仅仅是曹子建，我们每个人都有自己的理想、信念。人天生就会去追求美好事物，所有人都一样。&lt;/p&gt;
 &lt;p&gt;为什么 LGBT 群体不受欢迎？这是因为世俗的偏见。人从诞生，就被决定了性别。性别，为什么可以完全决定一个人呢？有的人渐渐长大，才发现自己并不适合于这个性别。这是因为他的性格。&lt;/p&gt;
@@ -478,7 +478,7 @@ CoroutineScope(Dispatchers.IO).launch {
 &lt;p&gt;“本是同根生，相煎何太急！”
 —— 曹植《七步诗》&lt;/p&gt;
 &lt;/blockquote&gt;
-</content:encoded></item><item><title>从零开始创建一个自己的博客</title><link>https://fuwari.vercel.app/posts/create-my-own-blog/</link><guid isPermaLink="true">https://fuwari.vercel.app/posts/create-my-own-blog/</guid><description>使用 Hexo + Butterfly 主题。</description><pubDate>Sun, 31 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;本篇教你从零开始创建一个自己的博客（通过使用 Hexo + Butterfly 主题），并托管到 Github Pages。&lt;/p&gt;
+</content:encoded></item><item><title>从零开始创建一个自己的博客</title><link>https://mucute-qwq.github.io/posts/create-my-own-blog/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/create-my-own-blog/</guid><description>使用 Hexo + Butterfly 主题。</description><pubDate>Sun, 31 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;本篇教你从零开始创建一个自己的博客（通过使用 Hexo + Butterfly 主题），并托管到 Github Pages。&lt;/p&gt;
 &lt;h2&gt;1. 安装 Git&lt;/h2&gt;
 &lt;p&gt;Git 是一个免费的开源分布式版本控制系统。我们后续需要使用 Git 克隆 Butterfly 仓库，所以要先安装 Git。
 访问 &lt;a href=&quot;https://git-scm.com&quot;&gt;Git Scm&lt;/a&gt; 自行下载并安装 Git。&lt;/p&gt;
@@ -559,7 +559,7 @@ bun add hexo-renderer-pug hexo-renderer-stylus
 hexo d
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;这时候会让你登录你的 Github 账户，就正常登录授权即可。完成之后等待两分钟（为了等 Github Pages 部署完毕），访问 &lt;code&gt;https://你的用户名.github.io&lt;/code&gt; 查看部署是否成功。若无异常，恭喜你成功部署了自己的个人主页（所有人都可以访问）&lt;/p&gt;
-</content:encoded></item><item><title>使用 Docker 构建 Termux Packages 中指定的包</title><link>https://fuwari.vercel.app/posts/build-termux-packages/</link><guid isPermaLink="true">https://fuwari.vercel.app/posts/build-termux-packages/</guid><description>简单几步，轻松为自己的 Android 软件编译所需要的库/可执行文件。</description><pubDate>Fri, 29 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 Docker?&lt;/h2&gt;
+</content:encoded></item><item><title>使用 Docker 构建 Termux Packages 中指定的包</title><link>https://mucute-qwq.github.io/posts/build-termux-packages/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/build-termux-packages/</guid><description>简单几步，轻松为自己的 Android 软件编译所需要的库/可执行文件。</description><pubDate>Fri, 29 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 Docker?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Docker 是一个使用 Golang 编写的开源的应用容器引擎，Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。&lt;/p&gt;
 &lt;p&gt;容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app），更重要的是容器性能开销极低。&lt;/p&gt;
@@ -678,7 +678,7 @@ ghcr.io/termux/package-builder   latest    830a35fed2cc   11 days ago   7.84GB
 &lt;pre&gt;&lt;code&gt;docker rmi 830a35fed2cc
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;这样环境就清理完毕了！&lt;/p&gt;
-</content:encoded></item><item><title>如何在 Ubuntu/Windows 上使用 Docker</title><link>https://fuwari.vercel.app/posts/how-to-use-docker/</link><guid isPermaLink="true">https://fuwari.vercel.app/posts/how-to-use-docker/</guid><description>通过简单学习，掌握 Docker 的基本使用方法。</description><pubDate>Fri, 29 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 Docker?&lt;/h2&gt;
+</content:encoded></item><item><title>如何在 Ubuntu/Windows 上使用 Docker</title><link>https://mucute-qwq.github.io/posts/how-to-use-docker/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/how-to-use-docker/</guid><description>通过简单学习，掌握 Docker 的基本使用方法。</description><pubDate>Fri, 29 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 Docker?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Docker 是一个使用 Golang 编写的开源的应用容器引擎，Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。&lt;/p&gt;
 &lt;p&gt;容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app），更重要的是容器性能开销极低。&lt;/p&gt;
@@ -942,7 +942,7 @@ docker cp [可选参数] 容器:原路径 目标路径
 &lt;li&gt;-q, --quiet: 安静模式，减少输出信息。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;一般我们直接使用 &lt;code&gt;docker load -i 文件路径&lt;/code&gt; 就可以了。&lt;/p&gt;
-</content:encoded></item><item><title>Hello, world!</title><link>https://fuwari.vercel.app/posts/hello-world/</link><guid isPermaLink="true">https://fuwari.vercel.app/posts/hello-world/</guid><description>为美好的世界献上祝福。</description><pubDate>Tue, 26 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;第 N 次重建博客了，这一个博客会用一生。博客不会再重建了，以后都是用这个博客来发文章吧。&lt;/p&gt;
+</content:encoded></item><item><title>Hello, world!</title><link>https://mucute-qwq.github.io/posts/hello-world/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/hello-world/</guid><description>为美好的世界献上祝福。</description><pubDate>Tue, 26 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;第 N 次重建博客了，这一个博客会用一生。博客不会再重建了，以后都是用这个博客来发文章吧。&lt;/p&gt;
 &lt;p&gt;“苏予汐”，这就是我的笔名。“予汐”，是赠予潮汐，象征着美好和理想呢！如果我术后改名，这个名字我肯定是会用的！&lt;/p&gt;
 &lt;p&gt;2020 年，我在上网课期间写了一个 JavaScript 语法分析&lt;/p&gt;
 &lt;p&gt;2022 年，我开始自己实现代码编辑器，写了 MuCodeEditor&lt;/p&gt;
