@@ -950,7 +950,7 @@ docker cp [可选参数] 容器:原路径 目标路径
 &lt;/ul&gt;
 &lt;p&gt;一般我们直接使用 &lt;code&gt;docker load -i 文件路径&lt;/code&gt; 就可以了。&lt;/p&gt;
 </content:encoded></item><item><title>Hello, world!</title><link>https://mucute-qwq.github.io/posts/hello-world/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/hello-world/</guid><description>为美好的世界献上祝福。</description><pubDate>Tue, 26 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;第 N 次重建博客了，这一个博客会用一生。博客不会再重建了，以后都是用这个博客来发文章吧。&lt;/p&gt;
-&lt;p&gt;“苏予汐”，这就是我的笔名。“予汐”，是赠予潮汐，象征着美好和理想呢！如果我术后改名，这个名字我肯定是会用的！&lt;/p&gt;
+&lt;p&gt;“苏雨汐”，这就是我的笔名。“雨汐”，是细雨，是潮汐，象征着美好和理想呢！如果我术后改名，这个名字我肯定是会用的！&lt;/p&gt;
 &lt;p&gt;2020 年，我在上网课期间写了一个 JavaScript 语法分析&lt;/p&gt;
 &lt;p&gt;2022 年，我开始自己实现代码编辑器，写了 MuCodeEditor&lt;/p&gt;
 &lt;p&gt;2023 年，我写了 WebDev，然后重写为了 WebDevOps（一个手机 WebIDE）&lt;/p&gt;
