@@ -576,6 +576,125 @@ bun add hexo-renderer-pug hexo-renderer-stylus
 hexo d
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;这时候会让你登录你的 Github 账户，就正常登录授权即可。完成之后等待两分钟（为了等 Github Pages 部署完毕），访问 &lt;code&gt;https://你的用户名.github.io&lt;/code&gt; 查看部署是否成功。若无异常，恭喜你成功部署了自己的个人主页（所有人都可以访问）&lt;/p&gt;
+</content:encoded></item><item><title>使用 Docker 构建 Termux Packages 中指定的包</title><link>https://mucute-qwq.github.io/posts/build-termux-packages/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/build-termux-packages/</guid><description>简单几步，轻松为自己的 Android 软件编译所需要的库/可执行文件。</description><pubDate>Fri, 29 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 Docker?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Docker 是一个使用 Golang 编写的开源的应用容器引擎，Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。&lt;/p&gt;
+&lt;p&gt;容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app），更重要的是容器性能开销极低。&lt;/p&gt;
+&lt;p&gt;更多信息详见：&lt;a href=&quot;https://www.runoob.com/docker/docker-tutorial.html&quot;&gt;runoob&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;说人话就是一个容器引擎，可以管理不同的容器（且容器之间不会相互影响）&lt;/p&gt;
+&lt;h2&gt;如何使用 Docker?&lt;/h2&gt;
+&lt;p&gt;详见另一篇文章 &lt;a href=&quot;https://mucute-qwq.github.io/posts/how-to-use-docker/&quot;&gt;《如何在 Ubuntu/Windows 上使用 Docker》&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;什么是 Termux Packages?&lt;/h2&gt;
+&lt;p&gt;Termux Packages 是一个用于 Termux（一个适用于 Android 的终端模拟器）的包构建系统。&lt;/p&gt;
+&lt;p&gt;说人话就是一个 “万能钥匙”，可以很方便地编译所需要的（适用于 Android的）包。&lt;/p&gt;
+&lt;h2&gt;1.准备工作&lt;/h2&gt;
+&lt;p&gt;首先要确定我们需要编译的包，我这里就以 Zlib（一个著名压缩库）为例子。&lt;/p&gt;
+&lt;p&gt;使用 Git 将 Termux Packages 给克隆下来&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# --depth=1 参数的意思是只需要最新的 commit（这样克隆速度快）
+git clone https://github.com/termux/termux-packages.git --depth=1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;接下来我们要修改配置。打开 &lt;code&gt;termux-packages/scripts/properties.sh&lt;/code&gt; 并编辑。（Linux 上可以使用 Vim，Windows 可以使用自带的文本编辑器）&lt;/p&gt;
+&lt;p&gt;搜索 TERMUX_REPO_APP__PACKAGE_NAME，然后发现如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# ...
+TERMUX_APP__PACKAGE_NAME=&quot;com.termux&quot;
+# ...
+TERMUX_REPO_APP__PACKAGE_NAME=&quot;com.termux&quot;
+TERMUX_REPO_APP__DATA_DIR=&quot;/data/data/com.termux&quot;
+TERMUX_REPO__CORE_DIR=&quot;/data/data/com.termux/termux/core&quot;
+TERMUX_REPO__APPS_DIR=&quot;/data/data/com.termux/termux/app&quot;
+TERMUX_REPO__ROOTFS=&quot;/data/data/com.termux/files&quot;
+TERMUX_REPO__HOME=&quot;/data/data/com.termux/files/home&quot;
+TERMUX_REPO__PREFIX=&quot;/data/data/com.termux/files/usr&quot;
+# ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;将其修改为&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# ...
+TERMUX_APP__PACKAGE_NAME=&quot;你的软件包名&quot;
+# ...
+TERMUX_REPO_APP__PACKAGE_NAME=&quot;你的软件包名&quot;
+TERMUX_REPO_APP__DATA_DIR=&quot;/data/data/你的软件包名&quot;
+TERMUX_REPO__CORE_DIR=&quot;/data/data/你的软件包名/termux/core&quot;
+TERMUX_REPO__APPS_DIR=&quot;/data/data/你的软件包名/termux/app&quot;
+TERMUX_REPO__ROOTFS=&quot;/data/data/你的软件包名/files&quot;
+TERMUX_REPO__HOME=&quot;/data/data/你的软件包名/files/home&quot;
+TERMUX_REPO__PREFIX=&quot;/data/data/你的软件包名/files/usr&quot;
+# ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后保存并退出文件，在当前 &lt;code&gt;termux-packages/scripts&lt;/code&gt; 目录下，先确保 Docker 服务正在运行，然后我们启动镜像创造一个编译环境。&lt;/p&gt;
+&lt;p&gt;注意：这一步拉取镜像会很慢，一定要使用梯子去拉取（否则大概率连接超时）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 对于 Linux 系统：
+chmod 700 run-docker.sh
+cd ..
+scripts/run-docker.sh
+
+# 对于 Windows 系统：
+cd ..
+scripts/run-docker.ps1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在进入容器后，我们需要先获取超级用户权限&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 将自身提权为超级用户
+sudo -s
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;接下来我们需要安装编译所需要的包，这一步很重要&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apt update # 更新当前软件包列表
+cd scripts # 进入脚本目录
+./setup-android-sdk.sh # 安装交叉编译所需的 Android SDK、Android NDK
+./setup-ubuntu.sh # 安装编译所需及常用的软件包
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;最后返回构建根目录&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ..
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;下面就是正式开始编译了！&lt;/p&gt;
+&lt;h2&gt;2.开始编译&lt;/h2&gt;
+&lt;p&gt;已知我们需要编译 Zlib，那么我们使用 &lt;code&gt;build-package.sh&lt;/code&gt; 脚本完成这件事。
+这里的 &lt;code&gt;zlib&lt;/code&gt; 是我们需要编译的包，如果需要编译别的包那就换成别的包名称（例如 &lt;code&gt;nodejs&lt;/code&gt;）
+使用 &lt;code&gt;-a&lt;/code&gt; 参数可指定目标架构，这里我们指定为 &lt;code&gt;aarch64&lt;/code&gt; 即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./build-package.sh zlib -a aarch64
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;编译会花很长的时间，请耐心等待。但是相比于编译一个 Linux 系统，还是要快很多的。
+编译后产生的文件将会在 &lt;code&gt;output&lt;/code&gt; 目录，里面的文件都是 &lt;code&gt;.deb&lt;/code&gt; 格式，我们可以对其进行解压缩。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for file in output/*
+do
+    dpkg -x $file /
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;解压缩完成后，文件将会在 &lt;code&gt;/data/data/你的软件包名&lt;/code&gt; 中，这里我们使用 &lt;code&gt;tar&lt;/code&gt; 进行压缩。&lt;/p&gt;
+&lt;p&gt;为什么不直接进行 &lt;code&gt;zip&lt;/code&gt; 呢？这是因为 &lt;code&gt;zip&lt;/code&gt; 会导致原本软链接的文件直接被替换并复制为原文件，空间占用会很大。而 &lt;code&gt;tar.gz&lt;/code&gt; 或者 &lt;code&gt;tar.xz&lt;/code&gt; 可以正确处理这些软链接的文件。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /home/builder/termux-packages &amp;amp;&amp;amp; tar czvf zlib.tar.gz /data/data/你的软件包名/*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后我们退出容器，在当前根目录下就有我们的 &lt;code&gt;zlib.tar.gz&lt;/code&gt; 了。
+可以使用 Common Compress 对 &lt;code&gt;tar.gz&lt;/code&gt; 进行解压缩。&lt;/p&gt;
+&lt;h2&gt;3.清理环境&lt;/h2&gt;
+&lt;p&gt;编译完成后如果没有什么特殊需求，我们可以删除这个容器。
+首先先看一下容器 ID&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker ps -a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;出现结果：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;CONTAINER ID   IMAGE                            COMMAND       CREATED          STATUS          PORTS     NAMES
+384de2869811   ghcr.io/termux/package-builder   &quot;/bin/bash&quot;   31 minutes ago   Up 31 minutes             termux-package-builder
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里的容器 ID 就是 &lt;code&gt;384de2869811&lt;/code&gt;，你这里显示的是不一样的。&lt;/p&gt;
+&lt;p&gt;我们可以先停止这个容器&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker stop 384de2869811 # 这个是刚刚显示的容器 ID
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后删除容器&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker rm 384de2869811
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;我不推荐你删除镜像，因为镜像拉取还是很费网的。主要是镜像占用空间大。当前如果你想要删除也是可以的。&lt;/p&gt;
+&lt;p&gt;先确保你已经停止并删除了所有容器，然后就可以正常删除镜像。&lt;/p&gt;
+&lt;p&gt;先看一下镜像 ID&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker images
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;显示为&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;REPOSITORY                       TAG       IMAGE ID       CREATED       SIZE
+ghcr.io/termux/package-builder   latest    830a35fed2cc   11 days ago   7.84GB
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里的 &lt;code&gt;830a35fed2cc&lt;/code&gt; 就是镜像的 ID&lt;/p&gt;
+&lt;p&gt;接下来我们对镜像进行删除&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker rmi 830a35fed2cc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样环境就清理完毕了！&lt;/p&gt;
 </content:encoded></item><item><title>如何在 Ubuntu/Windows 上使用 Docker</title><link>https://mucute-qwq.github.io/posts/how-to-use-docker/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/how-to-use-docker/</guid><description>通过简单学习，掌握 Docker 的基本使用方法。</description><pubDate>Fri, 29 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 Docker?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Docker 是一个使用 Golang 编写的开源的应用容器引擎，Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。&lt;/p&gt;
@@ -840,125 +959,6 @@ docker cp [可选参数] 容器:原路径 目标路径
 &lt;li&gt;-q, --quiet: 安静模式，减少输出信息。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;一般我们直接使用 &lt;code&gt;docker load -i 文件路径&lt;/code&gt; 就可以了。&lt;/p&gt;
-</content:encoded></item><item><title>使用 Docker 构建 Termux Packages 中指定的包</title><link>https://mucute-qwq.github.io/posts/build-termux-packages/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/build-termux-packages/</guid><description>简单几步，轻松为自己的 Android 软件编译所需要的库/可执行文件。</description><pubDate>Fri, 29 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;什么是 Docker?&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Docker 是一个使用 Golang 编写的开源的应用容器引擎，Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。&lt;/p&gt;
-&lt;p&gt;容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app），更重要的是容器性能开销极低。&lt;/p&gt;
-&lt;p&gt;更多信息详见：&lt;a href=&quot;https://www.runoob.com/docker/docker-tutorial.html&quot;&gt;runoob&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;说人话就是一个容器引擎，可以管理不同的容器（且容器之间不会相互影响）&lt;/p&gt;
-&lt;h2&gt;如何使用 Docker?&lt;/h2&gt;
-&lt;p&gt;详见另一篇文章 &lt;a href=&quot;https://mucute-qwq.github.io/posts/how-to-use-docker/&quot;&gt;《如何在 Ubuntu/Windows 上使用 Docker》&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;什么是 Termux Packages?&lt;/h2&gt;
-&lt;p&gt;Termux Packages 是一个用于 Termux（一个适用于 Android 的终端模拟器）的包构建系统。&lt;/p&gt;
-&lt;p&gt;说人话就是一个 “万能钥匙”，可以很方便地编译所需要的（适用于 Android的）包。&lt;/p&gt;
-&lt;h2&gt;1.准备工作&lt;/h2&gt;
-&lt;p&gt;首先要确定我们需要编译的包，我这里就以 Zlib（一个著名压缩库）为例子。&lt;/p&gt;
-&lt;p&gt;使用 Git 将 Termux Packages 给克隆下来&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# --depth=1 参数的意思是只需要最新的 commit（这样克隆速度快）
-git clone https://github.com/termux/termux-packages.git --depth=1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;接下来我们要修改配置。打开 &lt;code&gt;termux-packages/scripts/properties.sh&lt;/code&gt; 并编辑。（Linux 上可以使用 Vim，Windows 可以使用自带的文本编辑器）&lt;/p&gt;
-&lt;p&gt;搜索 TERMUX_REPO_APP__PACKAGE_NAME，然后发现如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# ...
-TERMUX_APP__PACKAGE_NAME=&quot;com.termux&quot;
-# ...
-TERMUX_REPO_APP__PACKAGE_NAME=&quot;com.termux&quot;
-TERMUX_REPO_APP__DATA_DIR=&quot;/data/data/com.termux&quot;
-TERMUX_REPO__CORE_DIR=&quot;/data/data/com.termux/termux/core&quot;
-TERMUX_REPO__APPS_DIR=&quot;/data/data/com.termux/termux/app&quot;
-TERMUX_REPO__ROOTFS=&quot;/data/data/com.termux/files&quot;
-TERMUX_REPO__HOME=&quot;/data/data/com.termux/files/home&quot;
-TERMUX_REPO__PREFIX=&quot;/data/data/com.termux/files/usr&quot;
-# ...
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;将其修改为&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# ...
-TERMUX_APP__PACKAGE_NAME=&quot;你的软件包名&quot;
-# ...
-TERMUX_REPO_APP__PACKAGE_NAME=&quot;你的软件包名&quot;
-TERMUX_REPO_APP__DATA_DIR=&quot;/data/data/你的软件包名&quot;
-TERMUX_REPO__CORE_DIR=&quot;/data/data/你的软件包名/termux/core&quot;
-TERMUX_REPO__APPS_DIR=&quot;/data/data/你的软件包名/termux/app&quot;
-TERMUX_REPO__ROOTFS=&quot;/data/data/你的软件包名/files&quot;
-TERMUX_REPO__HOME=&quot;/data/data/你的软件包名/files/home&quot;
-TERMUX_REPO__PREFIX=&quot;/data/data/你的软件包名/files/usr&quot;
-# ...
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;然后保存并退出文件，在当前 &lt;code&gt;termux-packages/scripts&lt;/code&gt; 目录下，先确保 Docker 服务正在运行，然后我们启动镜像创造一个编译环境。&lt;/p&gt;
-&lt;p&gt;注意：这一步拉取镜像会很慢，一定要使用梯子去拉取（否则大概率连接超时）&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# 对于 Linux 系统：
-chmod 700 run-docker.sh
-cd ..
-scripts/run-docker.sh
-
-# 对于 Windows 系统：
-cd ..
-scripts/run-docker.ps1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;在进入容器后，我们需要先获取超级用户权限&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# 将自身提权为超级用户
-sudo -s
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;接下来我们需要安装编译所需要的包，这一步很重要&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;apt update # 更新当前软件包列表
-cd scripts # 进入脚本目录
-./setup-android-sdk.sh # 安装交叉编译所需的 Android SDK、Android NDK
-./setup-ubuntu.sh # 安装编译所需及常用的软件包
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;最后返回构建根目录&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cd ..
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;下面就是正式开始编译了！&lt;/p&gt;
-&lt;h2&gt;2.开始编译&lt;/h2&gt;
-&lt;p&gt;已知我们需要编译 Zlib，那么我们使用 &lt;code&gt;build-package.sh&lt;/code&gt; 脚本完成这件事。
-这里的 &lt;code&gt;zlib&lt;/code&gt; 是我们需要编译的包，如果需要编译别的包那就换成别的包名称（例如 &lt;code&gt;nodejs&lt;/code&gt;）
-使用 &lt;code&gt;-a&lt;/code&gt; 参数可指定目标架构，这里我们指定为 &lt;code&gt;aarch64&lt;/code&gt; 即可。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;./build-package.sh zlib -a aarch64
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;编译会花很长的时间，请耐心等待。但是相比于编译一个 Linux 系统，还是要快很多的。
-编译后产生的文件将会在 &lt;code&gt;output&lt;/code&gt; 目录，里面的文件都是 &lt;code&gt;.deb&lt;/code&gt; 格式，我们可以对其进行解压缩。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;for file in output/*
-do
-    dpkg -x $file /
-done
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;解压缩完成后，文件将会在 &lt;code&gt;/data/data/你的软件包名&lt;/code&gt; 中，这里我们使用 &lt;code&gt;tar&lt;/code&gt; 进行压缩。&lt;/p&gt;
-&lt;p&gt;为什么不直接进行 &lt;code&gt;zip&lt;/code&gt; 呢？这是因为 &lt;code&gt;zip&lt;/code&gt; 会导致原本软链接的文件直接被替换并复制为原文件，空间占用会很大。而 &lt;code&gt;tar.gz&lt;/code&gt; 或者 &lt;code&gt;tar.xz&lt;/code&gt; 可以正确处理这些软链接的文件。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cd /home/builder/termux-packages &amp;amp;&amp;amp; tar czvf zlib.tar.gz /data/data/你的软件包名/*
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;然后我们退出容器，在当前根目录下就有我们的 &lt;code&gt;zlib.tar.gz&lt;/code&gt; 了。
-可以使用 Common Compress 对 &lt;code&gt;tar.gz&lt;/code&gt; 进行解压缩。&lt;/p&gt;
-&lt;h2&gt;3.清理环境&lt;/h2&gt;
-&lt;p&gt;编译完成后如果没有什么特殊需求，我们可以删除这个容器。
-首先先看一下容器 ID&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;docker ps -a
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;出现结果：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;CONTAINER ID   IMAGE                            COMMAND       CREATED          STATUS          PORTS     NAMES
-384de2869811   ghcr.io/termux/package-builder   &quot;/bin/bash&quot;   31 minutes ago   Up 31 minutes             termux-package-builder
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这里的容器 ID 就是 &lt;code&gt;384de2869811&lt;/code&gt;，你这里显示的是不一样的。&lt;/p&gt;
-&lt;p&gt;我们可以先停止这个容器&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;docker stop 384de2869811 # 这个是刚刚显示的容器 ID
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;然后删除容器&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;docker rm 384de2869811
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;我不推荐你删除镜像，因为镜像拉取还是很费网的。主要是镜像占用空间大。当前如果你想要删除也是可以的。&lt;/p&gt;
-&lt;p&gt;先确保你已经停止并删除了所有容器，然后就可以正常删除镜像。&lt;/p&gt;
-&lt;p&gt;先看一下镜像 ID&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;docker images
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;显示为&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;REPOSITORY                       TAG       IMAGE ID       CREATED       SIZE
-ghcr.io/termux/package-builder   latest    830a35fed2cc   11 days ago   7.84GB
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这里的 &lt;code&gt;830a35fed2cc&lt;/code&gt; 就是镜像的 ID&lt;/p&gt;
-&lt;p&gt;接下来我们对镜像进行删除&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;docker rmi 830a35fed2cc
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这样环境就清理完毕了！&lt;/p&gt;
 </content:encoded></item><item><title>Hello, world!</title><link>https://mucute-qwq.github.io/posts/hello-world/</link><guid isPermaLink="true">https://mucute-qwq.github.io/posts/hello-world/</guid><description>为美好的世界献上祝福。</description><pubDate>Tue, 26 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;第 N 次重建博客了，这一个博客会用一生。博客不会再重建了，以后都是用这个博客来发文章吧。&lt;/p&gt;
 &lt;p&gt;“苏雨汐”，这就是我的笔名。“雨汐”，是细雨，是潮汐，象征着美好和理想呢！如果我术后改名，这个名字我肯定是会用的！&lt;/p&gt;
 &lt;p&gt;2020 年，我在上网课期间写了一个 JavaScript 语法分析&lt;/p&gt;
